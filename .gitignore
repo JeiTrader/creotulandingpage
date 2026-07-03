@@ -6,3 +6,6 @@ desktop.ini
 # Editor
 .vscode/
 *.log
+
+# Estado local de Netlify CLI
+.netlify/
