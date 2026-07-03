@@ -102,7 +102,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 
 /* BAND */
 .band{background:var(--gold);color:var(--navy);padding:20px 0;overflow:hidden}
-.band-track{display:flex;gap:56px;white-space:nowrap;animation:marq 28s linear infinite}
+.band-track{display:flex;gap:56px;white-space:nowrap;animation:marq 14s linear infinite}
 @keyframes marq{to{transform:translateX(-50%)}}
 .band-item{font-family:var(--fd);font-weight:800;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
 
@@ -545,6 +545,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
         <div class="big">🎉</div>
         <h3>¡Solicitud recibida!</h3>
         <p>Tu información quedó registrada. Te contactaré en menos de <strong style="color:var(--ink)">24 horas</strong> con tu propuesta personalizada.</p>
+        <p id="frase-motivacion" style="margin-top:14px;color:var(--gold2);font-weight:700"></p>
       </div>
     </div>
   </div>
@@ -592,6 +593,14 @@ try {
 } catch (e) {
   console.error("Firebase no inicializado. Revisa firebaseConfig.", e);
 }
+
+const FRASES_MOTIVACION = [
+  "Acabas de tomar la decisión que separa a los negocios que crecen de los que se quedan respondiendo chats. 🚀",
+  "Esta es la clase de decisión que en unos meses vas a recordar como el punto en que todo cambió para tu negocio. 📈",
+  "Tu negocio está a un paso de dejar de perder ventas y empezar a venderle a clientes realmente interesados. 💪",
+  "Los negocios que invierten en profesionalizarse son los que terminan escalando. Vas por buen camino. 🔥",
+  "En poco tiempo vas a preguntarte por qué no diste este paso antes. Excelente decisión. ✨"
+];
 
 // Canal privado de notificaciones push (app ntfy en Android)
 const NTFY_TOPIC = "creotulandingpage-leads-jei-8f3k2p";
@@ -657,6 +666,7 @@ $("btn-send").addEventListener("click", async () => {
     notificarCelular({ nombre, whatsapp, producto, plan, mensaje });
     if (typeof fbq === "function") fbq("track", "Lead", { content_name: plan });
     $("form-fields").style.display = "none";
+    $("frase-motivacion").textContent = FRASES_MOTIVACION[Math.floor(Math.random() * FRASES_MOTIVACION.length)];
     $("form-ok").style.display = "block";
     document.querySelector(".form-card").scrollIntoView({ behavior: "smooth", block: "center" });
   } catch (err) {
