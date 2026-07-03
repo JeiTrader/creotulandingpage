@@ -576,6 +576,16 @@ try {
   console.error("Firebase no inicializado. Revisa firebaseConfig.", e);
 }
 
+// Canal privado de notificaciones push (app ntfy en Android)
+const NTFY_TOPIC = "creotulandingpage-leads-jei-8f3k2p";
+function notificarCelular(lead) {
+  fetch("https://ntfy.sh/" + NTFY_TOPIC, {
+    method: "POST",
+    headers: { "Title": "Nuevo lead - CreoTuLandingPage", "Priority": "high", "Tags": "bell,moneybag" },
+    body: `${lead.nombre}\n📱 ${lead.whatsapp}\n🛍️ ${lead.producto}\n📦 ${lead.plan}` + (lead.mensaje ? `\n💬 ${lead.mensaje}` : "")
+  }).catch(() => {});
+}
+
 const $ = (id) => document.getElementById(id);
 function markBad(grp, bad) {
   $(grp).classList.toggle("bad", bad);
@@ -627,6 +637,7 @@ $("btn-send").addEventListener("click", async () => {
       fecha: serverTimestamp(),
       origen: "landing-creotulandingpage"
     });
+    notificarCelular({ nombre, whatsapp, producto, plan, mensaje });
     $("form-fields").style.display = "none";
     $("form-ok").style.display = "block";
     document.querySelector(".form-card").scrollIntoView({ behavior: "smooth", block: "center" });
