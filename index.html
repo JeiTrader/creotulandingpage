@@ -218,8 +218,8 @@ footer .logo{justify-content:center;margin-bottom:10px}
 
 /* FLYERS */
 .flyer-sec{padding:70px 0}
-.flyer-wrap{max-width:880px;margin:0 auto;padding:0 24px}
-.flyer-img{width:100%;display:block;border:1px solid var(--line);box-shadow:0 40px 100px rgba(0,0,0,.55)}
+.flyer-wrap{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.flyer-img{width:100%;display:block;border-top:1px solid var(--line);border-bottom:1px solid var(--line);box-shadow:0 40px 100px rgba(0,0,0,.55)}
 :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </style>
 </head>
@@ -531,8 +531,8 @@ footer .logo{justify-content:center;margin-bottom:10px}
 
         <div class="fg" id="g-whatsapp">
           <label>Tu número de contacto <em>*</em></label>
-          <input id="f-whatsapp" class="fctl" type="tel" placeholder="Ej: 300 123 4567" autocomplete="tel">
-          <div class="ferr">Ingresa un número válido de 10 dígitos.</div>
+          <input id="f-whatsapp" class="fctl" type="tel" inputmode="numeric" maxlength="10" placeholder="Ej: 300 123 4567" autocomplete="tel">
+          <div class="ferr" id="err-whatsapp">Ingresa un número válido de 10 dígitos que empiece por 3.</div>
         </div>
 
         <div class="fg" id="g-producto">
@@ -623,6 +623,21 @@ function markBad(grp, bad) {
   $(grp).querySelector(".fctl").classList.toggle("bad", bad);
 }
 
+function whatsappValida(v) {
+  return v.length === 10 && v.startsWith("3");
+}
+
+const inputWhatsapp = $("f-whatsapp");
+const errWhatsapp = $("err-whatsapp");
+inputWhatsapp.addEventListener("input", () => {
+  inputWhatsapp.value = inputWhatsapp.value.replace(/\D/g, "").slice(0, 10);
+  const v = inputWhatsapp.value;
+  if (!v) { errWhatsapp.textContent = "Ingresa un número válido de 10 dígitos que empiece por 3."; return; }
+  if (!v.startsWith("3")) { errWhatsapp.textContent = "El número debe comenzar por 3."; return; }
+  if (v.length < 10) { errWhatsapp.textContent = `Faltan ${10 - v.length} dígitos.`; return; }
+  errWhatsapp.textContent = "Número válido ✓";
+});
+
 $("btn-send").addEventListener("click", async () => {
   const nombre   = $("f-nombre").value.trim();
   const whatsapp = $("f-whatsapp").value.replace(/\D/g, "");
@@ -631,11 +646,11 @@ $("btn-send").addEventListener("click", async () => {
   const mensaje  = $("f-mensaje").value.trim();
 
   markBad("g-nombre",   nombre.length < 3);
-  markBad("g-whatsapp", whatsapp.length !== 10);
+  markBad("g-whatsapp", !whatsappValida(whatsapp));
   markBad("g-producto", producto.length < 3);
   markBad("g-plan",     !plan);
 
-  const ok = nombre.length >= 3 && whatsapp.length === 10 && producto.length >= 3 && plan;
+  const ok = nombre.length >= 3 && whatsappValida(whatsapp) && producto.length >= 3 && plan;
   if (!ok) {
     document.querySelector(".fg.bad")?.scrollIntoView({ behavior: "smooth", block: "center" });
     return;
