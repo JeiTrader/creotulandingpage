@@ -626,9 +626,11 @@ const errWhatsapp = $("err-whatsapp");
 inputWhatsapp.addEventListener("input", () => {
   inputWhatsapp.value = inputWhatsapp.value.replace(/\D/g, "").slice(0, 10);
   const v = inputWhatsapp.value;
-  if (!v) { errWhatsapp.textContent = "Ingresa un número válido de 10 dígitos que empiece por 3."; return; }
+  const faltan = 10 - v.length;
+  if (!v) { errWhatsapp.textContent = `Ingresa un número válido de 10 dígitos que empiece por 3. Faltan ${faltan} dígitos.`; return; }
+  if (!v.startsWith("3") && faltan > 0) { errWhatsapp.textContent = `El número debe comenzar por 3. Faltan ${faltan} dígitos.`; return; }
   if (!v.startsWith("3")) { errWhatsapp.textContent = "El número debe comenzar por 3."; return; }
-  if (v.length < 10) { errWhatsapp.textContent = `Faltan ${10 - v.length} dígitos.`; return; }
+  if (faltan > 0) { errWhatsapp.textContent = `Faltan ${faltan} dígitos.`; return; }
   errWhatsapp.textContent = "Número válido ✓";
 });
 
