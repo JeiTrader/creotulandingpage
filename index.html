@@ -152,22 +152,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 /* PLANES */
 #planes{background:var(--navy2);border-top:1px solid var(--line)}
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:900px;margin:60px auto 0}
-.plan{background:var(--navy);border:1px solid rgba(255,255,255,.09);padding:44px 36px;position:relative;transition:transform .3s}
+.plan{background:var(--navy);border:1px solid rgba(255,255,255,.09);padding:0 0 28px;position:relative;transition:transform .3s;overflow:hidden}
 .plan:hover{transform:translateY(-6px)}
 .plan.top{border:1.5px solid var(--gold);box-shadow:0 0 70px rgba(212,175,55,.12)}
-.plan-tag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-family:var(--fd);font-size:.7rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:8px 22px;white-space:nowrap}
-.plan-name{font-family:var(--fd);font-size:2.2rem;font-weight:900;text-transform:uppercase;text-align:center;margin-top:8px;letter-spacing:-.01em}
-.plan-name .au{color:var(--gold)}
-.plan-tagline{text-align:center;color:var(--muted);font-size:.84rem;margin-top:6px}
-.plan-price{font-family:var(--fd);font-size:3.5rem;font-weight:900;text-align:center;line-height:1;margin:24px 0 4px;color:var(--gold)}
-.plan-price small{font-size:.95rem;font-weight:600;color:var(--muted);letter-spacing:.06em}
-.plan-meta{text-align:center;color:var(--muted);font-size:.76rem;margin-bottom:28px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-.plan-meta span{display:inline-flex;align-items:center;gap:6px}
-.plan ul{list-style:none;display:grid;gap:12px;margin-bottom:32px}
-.plan li{display:flex;gap:12px;font-size:.89rem;align-items:flex-start}
-.plan li .y{color:var(--gold);font-weight:800;flex-shrink:0}
-.plan li b{color:var(--ink)}
-.btn-plan{width:100%;border:none;cursor:pointer;font-family:var(--fd);font-weight:800;font-size:.92rem;letter-spacing:.1em;text-transform:uppercase;padding:18px;transition:transform .2s,background .2s}
+.plan-img{width:100%;display:block;margin-bottom:24px}
+.btn-plan{width:calc(100% - 72px);margin:0 36px;border:none;cursor:pointer;font-family:var(--fd);font-weight:800;font-size:.92rem;letter-spacing:.1em;text-transform:uppercase;padding:18px;transition:transform .2s,background .2s}
 .btn-plan:hover{transform:translateY(-2px)}
 .plan.base .btn-plan{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}
 .plan.base .btn-plan:hover{background:rgba(212,175,55,.1)}
@@ -294,7 +283,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
 <!-- FLYER 1 -->
 <section class="flyer-sec" style="padding-top:90px;padding-bottom:0">
   <div class="flyer-wrap rv">
-    <img class="flyer-img" src="assets/flyer.jpg" alt="Deja de perder ventas y empieza a vender de verdad: WhatsApp vs Landing Page" loading="eager">
+    <img class="flyer-img" src="assets/flyer-whatsapp-vs-landing-1.png" alt="Deja de perder ventas y empieza a vender de verdad: WhatsApp vs Landing Page" loading="eager">
   </div>
 </section>
 
@@ -324,7 +313,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
 <!-- FLYER 2 -->
 <section class="flyer-sec" style="background:var(--navy2);padding-bottom:0;border-top:1px solid var(--line)">
   <div class="flyer-wrap rv">
-    <img class="flyer-img" src="assets/flyer.jpg" alt="Vendes por WhatsApp: clientes curiosos no compran. Vendes con Landing Page: clientes interesados sí compran" loading="lazy">
+    <img class="flyer-img" src="assets/flyer-whatsapp-vs-landing-2.png" alt="Vendes por WhatsApp: clientes curiosos no compran. Vendes con Landing Page: clientes interesados sí compran" loading="lazy">
   </div>
 </section>
 
@@ -449,13 +438,6 @@ footer .logo{justify-content:center;margin-bottom:10px}
   </div>
 </section>
 
-<!-- FLYER 3 -->
-<section class="flyer-sec" style="padding-bottom:0">
-  <div class="flyer-wrap rv">
-    <img class="flyer-img" src="assets/flyer.jpg" alt="Deja de perder ventas en WhatsApp. Vende con una landing page: automatiza, convierte, crece" loading="lazy">
-  </div>
-</section>
-
 <!-- PLANES -->
 <section id="planes">
   <div class="container">
@@ -468,35 +450,12 @@ footer .logo{justify-content:center;margin-bottom:10px}
     <div class="plans">
 
       <div class="plan base rv">
-        <div class="plan-name">Plan <span class="au">Impulso</span></div>
-        <p class="plan-tagline">Tu landing page profesional, lista para vender</p>
-        <div class="plan-price">$350.000<br><small>PESOS COLOMBIANOS · ÚNICO PAGO</small></div>
-        <div class="plan-meta"><span>🛡️ Vitalicio</span><span>∞ Sin pagos mensuales</span></div>
-        <ul>
-          <li><span class="y">✓</span><span><b>Landing page profesional</b> — directa para vender y enfocada en resultados</span></li>
-          <li><span class="y">✓</span><span><b>Formularios</b> — captura y organiza clientes de forma efectiva</span></li>
-          <li><span class="y">✓</span><span><b>Diseño funcional</b> — optimizado para convertir visitantes en compradores</span></li>
-          <li><span class="y">✓</span><span><b>Asesoramiento</b> — te guiamos para que sepas cómo iniciar a vender</span></li>
-        </ul>
+        <img class="plan-img" src="assets/plan-impulso.png" alt="Plan Impulso — Tu landing page profesional, lista para vender. $350.000 pesos colombianos, único pago, vitalicio.">
         <button class="btn-plan" onclick="pickPlan('Plan Impulso – $350.000 COP')">Elegir Plan Impulso</button>
       </div>
 
       <div class="plan top rv">
-        <div class="plan-tag">★ Más elegido</div>
-        <div class="plan-name">Plan <span class="au">Vende+</span></div>
-        <p class="plan-tagline">Tu negocio, más ventas, más resultados</p>
-        <div class="plan-price">$500.000<br><small>PESOS COLOMBIANOS · ÚNICO PAGO</small></div>
-        <div class="plan-meta"><span>🛡️ Vitalicio</span><span>∞ Sin pagos mensuales</span><span>🔒 Sin letras pequeñas</span></div>
-        <ul>
-          <li><span class="y">✓</span><span><b>Todo lo del Plan Impulso</b> — landing profesional + asesoramiento para iniciar a vender</span></li>
-          <li><span class="y">✓</span><span><b>Dominio incluido</b> — tu propio dominio profesional para tu negocio</span></li>
-          <li><span class="y">✓</span><span><b>Curso de Facebook Ads</b> — aprende a crear campañas efectivas para atraer clientes</span></li>
-          <li><span class="y">✓</span><span><b>Estrategia de ventas</b> — te guiamos con una estrategia completa para vender más y mejor</span></li>
-          <li><span class="y">✓</span><span><b>Empresa de mensajería</b> — integración y asesoría para envíos rápidos y eficientes</span></li>
-          <li><span class="y">✓</span><span><b>Campañas publicitarias</b> — configuración y optimización para mejores resultados</span></li>
-          <li><span class="y">✓</span><span><b>Trazabilidad completa</b> — instalación de píxel y eventos para medir y escalar</span></li>
-          <li><span class="y">✓</span><span><b>Soporte y cambios</b> — soporte prioritario incluido durante 3 meses</span></li>
-        </ul>
+        <img class="plan-img" src="assets/plan-vende.png" alt="Plan Vende+ — Tu negocio, más ventas, más resultados. $500.000 pesos colombianos, único pago, vitalicio. Más elegido.">
         <button class="btn-plan" onclick="pickPlan('Plan Vende+ – $500.000 COP')">Elegir Plan Vende+</button>
       </div>
 
