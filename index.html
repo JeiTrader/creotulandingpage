@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CreoTuLandingPage — Tu negocio con una landing page que vende por ti</title>
+<meta name="description" content="Descubre por qué los negocios que crecen ya no venden por chat. Landing pages profesionales que informan, filtran y convierten. Pago único, tuya para siempre.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0a1220; --navy2:#0d1830; --navy3:#101f3c; --card:#0f1a30;
+  --gold:#d4af37; --gold2:#f0c75e; --gold-d:#a8862a;
+  --ink:#f5f3ec; --muted:#93a3bd; --line:rgba(212,175,55,.16);
+  --fd:'Archivo',sans-serif; --fb:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--ink);font-family:var(--fb);line-height:1.65;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--navy)}
+h1,h2,h3{font-family:var(--fd);line-height:1.08;letter-spacing:-.015em}
+h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:900;text-transform:uppercase}
+h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:800;margin-bottom:16px;text-transform:uppercase}
+h3{font-size:1.1rem;font-weight:700}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:100px 0;position:relative}
+.au{color:var(--gold)}
+.gold-grad{background:linear-gradient(110deg,var(--gold2),var(--gold) 60%,var(--gold-d));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.eyebrow{display:inline-block;background:var(--gold);color:var(--navy);font-family:var(--fd);font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:7px 18px;margin-bottom:22px}
+.lead{color:var(--muted);font-size:1.06rem;max-width:600px}
+.center{text-align:center}.center .lead{margin:0 auto}
+.rule{width:56px;height:3px;background:var(--gold);margin:22px 0}
+.center .rule{margin:22px auto}
+
+/* ANIM */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.22,1,.36,1),transform .75s cubic-bezier(.22,1,.36,1)}
+.rv.on{opacity:1;transform:none}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes msgIn{0%{opacity:0;transform:translateY(14px) scale(.96)}100%{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes glowGold{0%,100%{box-shadow:0 10px 34px rgba(212,175,55,.35)}50%{box-shadow:0 10px 48px rgba(212,175,55,.6)}}
+@keyframes scrollHint{0%,100%{transform:translateY(0);opacity:.9}50%{transform:translateY(8px);opacity:.4}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);background:rgba(10,18,32,.82);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1140px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:var(--fd);font-weight:800;font-size:1rem;letter-spacing:.02em;display:flex;align-items:center;gap:10px;text-transform:uppercase}
+.logo-mark{width:30px;height:30px;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:.95rem;font-weight:900}
+.nav-cta{background:var(--gold);color:var(--navy);text-decoration:none;font-family:var(--fd);font-weight:800;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;padding:11px 24px;transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px)}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;align-items:center;padding:150px 0 90px;background:
+  radial-gradient(900px 500px at 85% 10%,rgba(212,175,55,.09),transparent 60%),
+  radial-gradient(700px 500px at 0% 90%,rgba(16,31,60,.9),transparent 60%),var(--navy)}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:64px;align-items:center}
+.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.hero-kicker .dot{width:7px;height:7px;background:var(--gold);animation:blink 1.8s infinite}
+.hero-sub{color:var(--muted);font-size:1.14rem;margin:26px 0 0;max-width:540px}
+.hero-sub strong{color:var(--ink)}
+.scroll-hint{display:inline-flex;flex-direction:column;align-items:flex-start;gap:8px;margin-top:44px;color:var(--gold);text-decoration:none;font-family:var(--fd);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.scroll-hint svg{animation:scrollHint 1.8s ease-in-out infinite}
+.scroll-hint:hover{color:var(--gold2)}
+
+/* PHONE SIM */
+.sim-wrap{position:relative;display:flex;justify-content:center}
+.sim-glow{position:absolute;inset:8%;background:radial-gradient(circle,rgba(212,175,55,.22),transparent 62%);filter:blur(46px)}
+.phone{position:relative;width:305px;background:#0b1426;border:1px solid rgba(212,175,55,.22);border-radius:36px;padding:14px;box-shadow:0 44px 100px rgba(0,0,0,.65);animation:float 7.5s ease-in-out infinite}
+.phone-notch{width:96px;height:20px;background:var(--navy);border-radius:0 0 13px 13px;margin:0 auto 10px}
+.notif{position:absolute;top:-15px;right:-15px;width:50px;height:50px;border-radius:50%;background:#c43b3b;display:grid;place-items:center;font-family:var(--fd);font-weight:800;font-size:.95rem;box-shadow:0 8px 26px rgba(196,59,59,.5);z-index:3}
+.chat-head{background:#0e5c4a;border-radius:16px 16px 0 0;padding:12px 15px;display:flex;gap:10px;align-items:center}
+.chat-av{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.14);display:grid;place-items:center;font-size:.9rem}
+.chat-name{font-size:.74rem;font-weight:700}
+.chat-status{font-size:.6rem;opacity:.72}
+.chat-body{background:#0a1120;border-radius:0 0 16px 16px;padding:13px 12px;min-height:330px;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.bub{background:#13203a;border:1px solid rgba(255,255,255,.05);border-radius:12px 12px 12px 4px;padding:9px 13px;font-size:.74rem;max-width:88%;opacity:0}
+.bub.show{animation:msgIn .45s cubic-bezier(.22,1,.36,1) forwards}
+.stress{font-size:.67rem;color:#e58989;text-align:center;font-weight:600;opacity:0}
+.stress.show{animation:msgIn .45s forwards}
+.lost-counter{margin-top:auto;text-align:center;background:rgba(196,59,59,.1);border:1px solid rgba(196,59,59,.3);border-radius:11px;padding:10px}
+.lost-label{font-size:.58rem;letter-spacing:.13em;text-transform:uppercase;color:#e58989;font-weight:700}
+.lost-num{font-family:var(--fd);font-size:1.3rem;font-weight:800;color:#e05252}
+
+/* BAND */
+.band{background:var(--gold);color:var(--navy);padding:20px 0;overflow:hidden}
+.band-track{display:flex;gap:56px;white-space:nowrap;animation:marq 28s linear infinite}
+@keyframes marq{to{transform:translateX(-50%)}}
+.band-item{font-family:var(--fd);font-weight:800;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
+
+/* PROBLEMA */
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2px;margin-top:56px;background:var(--line)}
+.pcard{background:var(--navy2);padding:34px 28px;transition:background .3s}
+.pcard:hover{background:var(--navy3)}
+.pcard .q{font-family:var(--fd);font-size:1.25rem;font-weight:800;color:var(--gold);margin-bottom:10px;display:block}
+.pcard p{color:var(--muted);font-size:.9rem}
+.quote-banner{margin:64px auto 0;max-width:780px;border-left:4px solid var(--gold);background:var(--navy2);padding:36px 42px}
+.quote-banner p:first-child{font-family:var(--fd);font-size:1.5rem;font-weight:700;line-height:1.3;margin-bottom:12px}
+.quote-banner p:last-child{color:var(--muted);font-size:.95rem}
+
+/* QUÉ ES */
+#que-es{background:var(--navy2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.def-card{background:var(--navy);border:1px solid var(--line);padding:40px}
+.def-card .big-def{font-family:var(--fd);font-size:1.35rem;font-weight:700;line-height:1.35;margin-bottom:18px}
+.def-card .big-def .au{border-bottom:3px solid var(--gold)}
+.def-list{display:grid;gap:16px;margin-top:26px}
+.def-item{display:flex;gap:14px;align-items:flex-start}
+.def-item .ic{width:38px;height:38px;flex-shrink:0;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-size:.95rem}
+.def-item h3{margin-bottom:3px;text-transform:none;font-size:1rem}
+.def-item p{color:var(--muted);font-size:.87rem}
+
+/* PASOS */
+.steps{margin-top:60px;display:grid;gap:0;counter-reset:paso}
+.step{display:grid;grid-template-columns:90px 1fr;gap:28px;padding:30px 0;border-bottom:1px solid rgba(212,175,55,.12);align-items:start}
+.step:last-child{border-bottom:none}
+.step-n{font-family:var(--fd);font-size:2.6rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--gold);line-height:1}
+.step h3{margin-bottom:6px;font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em}
+.step p{color:var(--muted);font-size:.93rem;max-width:640px}
+
+/* STATS */
+#stats{background:var(--navy2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:70px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
+.stat{text-align:center;padding:20px 14px}
+.stat-num{font-family:var(--fd);font-size:clamp(2.5rem,4.6vw,3.6rem);font-weight:900;color:var(--gold);line-height:1.05}
+.stat-label{color:var(--muted);font-size:.84rem;margin-top:8px;font-weight:500}
+
+/* COMPARE */
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+.cmp{border:1px solid rgba(255,255,255,.08);background:var(--card)}
+.cmp-h{padding:20px;font-family:var(--fd);font-weight:800;font-size:.95rem;text-align:center;letter-spacing:.06em;text-transform:uppercase}
+.cmp-bad .cmp-h{background:rgba(196,59,59,.12);color:#e58989;border-bottom:1px solid rgba(196,59,59,.25)}
+.cmp-good .cmp-h{background:rgba(212,175,55,.12);color:var(--gold2);border-bottom:1px solid var(--line)}
+.cmp-row{display:flex;gap:12px;padding:14px 24px;font-size:.88rem;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.04)}
+.cmp-row:last-child{border-bottom:none}
+.cmp-good .cmp-row{color:#dfe6f2}
+@media(max-width:760px){.cmp-grid{grid-template-columns:1fr}}
+
+/* TESTIMONIOS */
+.t-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin-top:56px}
+.tcard{background:var(--card);border:1px solid rgba(255,255,255,.07);border-top:3px solid var(--gold);padding:32px;position:relative;transition:transform .3s}
+.tcard:hover{transform:translateY(-5px)}
+.tcard .stars{color:var(--gold);font-size:.85rem;letter-spacing:2px;margin-bottom:14px}
+.tcard .txt{font-size:.93rem;color:#cfd8e6;margin-bottom:22px}
+.t-author{display:flex;gap:13px;align-items:center}
+.t-av{width:44px;height:44px;border-radius:50%;background:var(--navy3);border:1.5px solid var(--gold);display:grid;place-items:center;font-family:var(--fd);font-weight:800;font-size:.8rem;color:var(--gold)}
+.t-name{font-weight:700;font-size:.9rem}
+.t-biz{color:var(--muted);font-size:.76rem}
+.t-metric{position:absolute;top:26px;right:26px;background:rgba(212,175,55,.12);border:1px solid var(--line);color:var(--gold2);font-family:var(--fd);font-size:.68rem;font-weight:800;padding:5px 12px;letter-spacing:.04em}
+
+/* PLANES */
+#planes{background:var(--navy2);border-top:1px solid var(--line)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:28px;max-width:900px;margin:60px auto 0}
+.plan{background:var(--navy);border:1px solid rgba(255,255,255,.09);padding:44px 36px;position:relative;transition:transform .3s}
+.plan:hover{transform:translateY(-6px)}
+.plan.top{border:1.5px solid var(--gold);box-shadow:0 0 70px rgba(212,175,55,.12)}
+.plan-tag{position:absolute;top:-15px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--navy);font-family:var(--fd);font-size:.7rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;padding:8px 22px;white-space:nowrap}
+.plan-name{font-family:var(--fd);font-size:2.2rem;font-weight:900;text-transform:uppercase;text-align:center;margin-top:8px;letter-spacing:-.01em}
+.plan-name .au{color:var(--gold)}
+.plan-tagline{text-align:center;color:var(--muted);font-size:.84rem;margin-top:6px}
+.plan-price{font-family:var(--fd);font-size:3.5rem;font-weight:900;text-align:center;line-height:1;margin:24px 0 4px;color:var(--gold)}
+.plan-price small{font-size:.95rem;font-weight:600;color:var(--muted);letter-spacing:.06em}
+.plan-meta{text-align:center;color:var(--muted);font-size:.76rem;margin-bottom:28px;display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.plan-meta span{display:inline-flex;align-items:center;gap:6px}
+.plan ul{list-style:none;display:grid;gap:12px;margin-bottom:32px}
+.plan li{display:flex;gap:12px;font-size:.89rem;align-items:flex-start}
+.plan li .y{color:var(--gold);font-weight:800;flex-shrink:0}
+.plan li b{color:var(--ink)}
+.btn-plan{width:100%;border:none;cursor:pointer;font-family:var(--fd);font-weight:800;font-size:.92rem;letter-spacing:.1em;text-transform:uppercase;padding:18px;transition:transform .2s,background .2s}
+.btn-plan:hover{transform:translateY(-2px)}
+.plan.base .btn-plan{background:transparent;border:1.5px solid var(--gold);color:var(--gold)}
+.plan.base .btn-plan:hover{background:rgba(212,175,55,.1)}
+.plan.top .btn-plan{background:var(--gold);color:var(--navy);animation:glowGold 2.6s ease-in-out infinite}
+.plan.top .btn-plan:hover{background:var(--gold2)}
+.vital-note{max-width:640px;margin:44px auto 0;text-align:center;color:var(--muted);font-size:.9rem;border:1px solid var(--line);padding:20px 28px}
+.vital-note b{color:var(--gold)}
+
+/* FORM */
+#form-section{background:var(--navy);padding-bottom:110px}
+.form-card{max-width:600px;margin:56px auto 0;background:var(--navy2);border:1px solid var(--line);border-top:4px solid var(--gold);padding:46px 42px;box-shadow:0 34px 90px rgba(0,0,0,.5)}
+.form-head{text-align:center;margin-bottom:34px}
+.form-head h3{font-size:1.5rem;text-transform:uppercase;margin-bottom:8px}
+.form-head p{color:var(--muted);font-size:.88rem}
+.fg{margin-bottom:20px}
+.fg label{display:block;font-family:var(--fd);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:9px;color:#c9d3e4}
+.fg label em{color:var(--gold);font-style:normal}
+.fctl{width:100%;background:var(--navy);border:1.5px solid rgba(255,255,255,.12);color:var(--ink);font-family:var(--fb);font-size:.95rem;padding:15px 16px;transition:border-color .2s,box-shadow .2s;outline:none;appearance:none;border-radius:0}
+.fctl:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.14)}
+.fctl.bad{border-color:#e05252}
+select.fctl{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+.ferr{display:none;color:#e58989;font-size:.76rem;margin-top:6px;font-weight:500}
+.fg.bad .ferr{display:block}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:560px){.frow{grid-template-columns:1fr}}
+.btn-send{width:100%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--gold);color:var(--navy);font-family:var(--fd);font-weight:900;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;padding:19px;margin-top:10px;transition:transform .2s,background .2s;animation:glowGold 2.8s ease-in-out infinite}
+.btn-send:hover:not(:disabled){transform:translateY(-2px);background:var(--gold2)}
+.btn-send:disabled{opacity:.6;cursor:wait;animation:none}
+.form-note{text-align:center;color:var(--muted);font-size:.74rem;margin-top:18px}
+.form-ok{display:none;text-align:center;padding:34px 10px}
+.form-ok .big{font-size:3rem;margin-bottom:14px}
+.form-ok h3{font-size:1.4rem;text-transform:uppercase;margin-bottom:10px}
+.form-ok p{color:var(--muted);font-size:.93rem}
+.form-fail{display:none;background:rgba(196,59,59,.12);border:1px solid rgba(196,59,59,.35);padding:14px 18px;color:#e58989;font-size:.84rem;margin-top:16px;font-weight:500}
+
+footer{border-top:1px solid var(--line);padding:38px 0;text-align:center;color:var(--muted);font-size:.78rem;background:var(--navy2)}
+footer .logo{justify-content:center;margin-bottom:10px}
+
+@media(max-width:900px){
+  .hero-grid,.split{grid-template-columns:1fr;gap:52px;text-align:center}
+  .hero-sub,.lead{margin-left:auto;margin-right:auto}
+  .rule{margin-left:auto;margin-right:auto}
+  .scroll-hint{align-items:center;width:100%}
+  section{padding:76px 0}
+  .def-card{text-align:left}
+  .step{grid-template-columns:60px 1fr;gap:18px;text-align:left}
+}
+
+/* FLYERS */
+.flyer-sec{padding:70px 0}
+.flyer-wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.flyer-img{width:100%;display:block;border:1px solid var(--line);box-shadow:0 40px 100px rgba(0,0,0,.55)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <div class="logo"><span class="logo-mark">C</span>CreoTuLandingPage</div>
+    <a href="#form-section" class="nav-cta">Solicitar información</a>
+  </div>
+</nav>
+
+<!-- HERO — informa, no vende -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-kicker"><span class="dot"></span> Para negocios que venden por redes</div>
+        <h1>Tu negocio, <span class="gold-grad">más ventas,</span><br>más resultados</h1>
+        <p class="hero-sub">Cada día respondes las mismas preguntas: <strong>precio, envíos, colores, tiempos.</strong> Aquí vas a descubrir por qué eso te está costando ventas — y cómo los negocios que crecen lo resolvieron.</p>
+        <a href="#problema" class="scroll-hint">
+          Descubre cómo
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        </a>
+      </div>
+      <div class="sim-wrap">
+        <div class="sim-glow"></div>
+        <div class="phone">
+          <div class="notif" id="notif">47</div>
+          <div class="phone-notch"></div>
+          <div class="chat-head">
+            <div class="chat-av">👤</div>
+            <div>
+              <div class="chat-name">Mi Negocio</div>
+              <div class="chat-status" id="unread">47 mensajes sin leer</div>
+            </div>
+          </div>
+          <div class="chat-body" id="chat-body">
+            <div class="bub">¿Cuánto cuesta? 🤔</div>
+            <div class="bub">precio?</div>
+            <div class="bub">Hola hay? 👋</div>
+            <div class="bub">¿Hacen envíos? 📦</div>
+            <div class="stress">😰 +44 mensajes sin responder...</div>
+            <div class="bub">¿Tienen el rojo? ❓</div>
+            <div class="bub">Cuántos días demora</div>
+            <div class="bub">Me pueden hacer descuento</div>
+            <div class="lost-counter">
+              <div class="lost-label">Ventas concretas hoy</div>
+              <div class="lost-num">$0 COP</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<div class="band">
+  <div class="band-track">
+    <span class="band-item">★ Inversión única, beneficios para siempre</span>
+    <span class="band-item">★ Sitio profesional que vende por ti</span>
+    <span class="band-item">★ Estrategia completa para atraer clientes</span>
+    <span class="band-item">★ Más clientes, más ventas</span>
+    <span class="band-item">★ Inversión única, beneficios para siempre</span>
+    <span class="band-item">★ Sitio profesional que vende por ti</span>
+    <span class="band-item">★ Estrategia completa para atraer clientes</span>
+    <span class="band-item">★ Más clientes, más ventas</span>
+  </div>
+</div>
+
+
+<!-- FLYER 1 -->
+<section class="flyer-sec" style="padding-top:90px;padding-bottom:0">
+  <div class="flyer-wrap rv">
+    <img class="flyer-img" src="assets/flyer.jpg" alt="Deja de perder ventas y empieza a vender de verdad: WhatsApp vs Landing Page" loading="eager">
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section id="problema">
+  <div class="container">
+    <div class="center rv">
+      <span class="eyebrow">Primero, entendamos el problema</span>
+      <h2>El chat no es una tienda.<br>Es una <span class="au">fila infinita</span> de preguntas</h2>
+      <div class="rule"></div>
+      <p class="lead">Invertiste en la pauta. Pusiste el precio. Explicaste todo. Y aún así, cada día llegan las mismas preguntas de personas que no leyeron nada. Uno se cansa de responder lo evidente.</p>
+    </div>
+    <div class="grid-4">
+      <div class="pcard rv"><span class="q">"¿Cuánto cuesta?"</span><p>El precio está en la publicación. Pero igual lo preguntan. Una y otra vez. Todos los días.</p></div>
+      <div class="pcard rv"><span class="q">"¿Hacen envíos?"</span><p>Lo explicaste en la bio, en las historias y en el post. La pregunta llega igual.</p></div>
+      <div class="pcard rv"><span class="q">"¿Qué colores hay?"</span><p>Subiste fotos de todos los colores. Te escriben para que los repitas uno por uno.</p></div>
+      <div class="pcard rv"><span class="q">"¿Cuánto demora?"</span><p>Cada cliente nuevo, la misma pregunta. Tu tiempo vale demasiado para este ciclo sin fin.</p></div>
+    </div>
+    <div class="quote-banner rv">
+      <p>Mientras respondes lo que ya está escrito, las ventas reales se enfrían.</p>
+      <p>No es culpa tuya ni del cliente. Es que un chat no está diseñado para vender. Existe una herramienta que sí lo está.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FLYER 2 -->
+<section class="flyer-sec" style="background:var(--navy2);padding-bottom:0;border-top:1px solid var(--line)">
+  <div class="flyer-wrap rv">
+    <img class="flyer-img" src="assets/flyer.jpg" alt="Vendes por WhatsApp: clientes curiosos no compran. Vendes con Landing Page: clientes interesados sí compran" loading="lazy">
+  </div>
+</section>
+
+<!-- QUÉ ES UNA LANDING PAGE -->
+<section id="que-es">
+  <div class="container">
+    <div class="split">
+      <div class="rv">
+        <span class="eyebrow">La solución</span>
+        <h2>¿Qué es una <span class="au">landing page</span>?</h2>
+        <div class="rule"></div>
+        <p class="lead" style="margin-bottom:0">Es una página diseñada con un solo objetivo: convertir visitantes en clientes. No es una red social ni un catálogo genérico — es tu mejor vendedor, trabajando las 24 horas.</p>
+        <div class="def-list">
+          <div class="def-item rv"><div class="ic">📄</div><div><h3>Informa sin que preguntes nada</h3><p>Precio, colores, envíos, tiempos: todo visible, claro y ordenado desde el primer segundo.</p></div></div>
+          <div class="def-item rv"><div class="ic">🎯</div><div><h3>Filtra a los curiosos</h3><p>Quien no está interesado se va solo. Quien sí, deja sus datos. Tú solo hablas con compradores.</p></div></div>
+          <div class="def-item rv"><div class="ic">🗂️</div><div><h3>Organiza a tus clientes</h3><p>Cada interesado queda registrado en tu base de datos. Nada se pierde entre cientos de chats.</p></div></div>
+        </div>
+      </div>
+      <div class="def-card rv">
+        <p class="big-def">Piénsalo así: hoy <span class="au">tú trabajas para tu chat</span>. Con una landing page, <span class="au">la página trabaja para ti</span>.</p>
+        <p style="color:var(--muted);font-size:.93rem">Los negocios que escalan en 2026 no responden mensajes uno por uno. Tienen un sistema que informa, convence y captura clientes automáticamente — mientras ellos se dedican a producir, despachar y crecer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CÓMO FUNCIONA -->
+<section id="como">
+  <div class="container">
+    <div class="center rv">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>De visitante a cliente <span class="au">en 5 pasos</span></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="steps">
+      <div class="step rv"><div class="step-n">01</div><div><h3>El cliente entra a tu landing</h3><p>Desde tus redes, anuncios o link en bio llega a una página profesional que proyecta confianza inmediata.</p></div></div>
+      <div class="step rv"><div class="step-n">02</div><div><h3>Ve toda la información sin preguntar</h3><p>Precio, colores, envíos, tiempos de entrega, garantías: todo respondido antes de que escriba una sola palabra.</p></div></div>
+      <div class="step rv"><div class="step-n">03</div><div><h3>Se filtra automáticamente</h3><p>Los curiosos se van solos. Solo los interesados reales continúan.</p></div></div>
+      <div class="step rv"><div class="step-n">04</div><div><h3>Deja sus datos en el formulario</h3><p>Nombre, contacto y qué quiere comprar: organizado en tu base de datos, listo para tu seguimiento.</p></div></div>
+      <div class="step rv"><div class="step-n">05</div><div><h3>Tú solo confirmas y cobras</h3><p>Sin explicar, sin convencer, sin repetir. El trabajo pesado ya está hecho.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat rv"><div class="stat-num" data-count="3" data-suffix="x">0</div><div class="stat-label">Más conversión que un perfil de redes</div></div>
+      <div class="stat rv"><div class="stat-num" data-count="24" data-suffix="/7">0</div><div class="stat-label">Tu página vende sin horario</div></div>
+      <div class="stat rv"><div class="stat-num" data-count="40" data-prefix="+">0</div><div class="stat-label">Negocios ya automatizados</div></div>
+      <div class="stat rv"><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">Tuya para siempre — pago único</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVA -->
+<section id="vs">
+  <div class="container">
+    <div class="center rv">
+      <span class="eyebrow">La diferencia</span>
+      <h2>Chat manual vs <span class="au">sistema que vende</span></h2>
+      <div class="rule"></div>
+    </div>
+    <div class="cmp-grid">
+      <div class="cmp cmp-bad rv">
+        <div class="cmp-h">Vender por chat</div>
+        <div class="cmp-row"><span>✗</span><span>Caos de mensajes sin control ni orden</span></div>
+        <div class="cmp-row"><span>✗</span><span>Preguntas repetidas de gente que no lee</span></div>
+        <div class="cmp-row"><span>✗</span><span>Horas perdidas respondiendo lo mismo</span></div>
+        <div class="cmp-row"><span>✗</span><span>Ventas que dependen 100% de ti</span></div>
+        <div class="cmp-row"><span>✗</span><span>Los leads se pierden entre los chats</span></div>
+        <div class="cmp-row"><span>✗</span><span>Imagen improvisada y poco profesional</span></div>
+      </div>
+      <div class="cmp cmp-good rv">
+        <div class="cmp-h">Con tu landing page</div>
+        <div class="cmp-row"><span style="color:var(--gold)">✓</span><span>Sistema automatizado y ordenado</span></div>
+        <div class="cmp-row"><span style="color:var(--gold)">✓</span><span>La página responde todo antes de que pregunten</span></div>
+        <div class="cmp-row"><span style="color:var(--gold)">✓</span><span>Tu tiempo libre para crecer el negocio</span></div>
+        <div class="cmp-row"><span style="color:var(--gold)">✓</span><span>Vende 24/7, incluso mientras duermes</span></div>
+        <div class="cmp-row"><span style="color:var(--gold)">✓</span><span>Cada lead guardado en tu base de datos</span></div>
+        <div class="cmp-row"><span style="color:var(--gold)">✓</span><span>Marca premium que eleva el valor percibido</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="resultados">
+  <div class="container">
+    <div class="center rv">
+      <span class="eyebrow">Resultados reales</span>
+      <h2>Emprendedores que <span class="au">dejaron el caos</span> atrás</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="t-grid">
+      <div class="tcard rv">
+        <div class="t-metric">+300% ventas</div>
+        <div class="stars">★★★★★</div>
+        <p class="txt">Antes respondía 60 mensajes al día y cerraba 2 ventas. Ahora me escriben 10 personas y cierro 8. La landing hace todo el trabajo pesado.</p>
+        <div class="t-author"><div class="t-av">VR</div><div><div class="t-name">Valentina Restrepo</div><div class="t-biz">Tienda de ropa — Medellín</div></div></div>
+      </div>
+      <div class="tcard rv">
+        <div class="t-metric">3h/día libres</div>
+        <div class="stars">★★★★★</div>
+        <p class="txt">Recuperé 3 horas al día. La gente llega informada y lista. El primer mes tripliqué ventas sin invertir más en publicidad.</p>
+        <div class="t-author"><div class="t-av">CM</div><div><div class="t-name">Carlos Méndez</div><div class="t-biz">Cursos online — Bogotá</div></div></div>
+      </div>
+      <div class="tcard rv">
+        <div class="t-metric">Vende 24/7</div>
+        <div class="stars">★★★★★</div>
+        <p class="txt">Perdía ventas por no responder a tiempo. Ahora mi landing trabaja 24/7, incluso los domingos. Ya no vivo pegada al celular.</p>
+        <div class="t-author"><div class="t-av">LP</div><div><div class="t-name">Laura Pinto</div><div class="t-biz">Productos naturales — Cali</div></div></div>
+      </div>
+      <div class="tcard rv">
+        <div class="t-metric">$800K → $3.2M</div>
+        <div class="stars">★★★★★</div>
+        <p class="txt">Pasé de vender $800K al mes a $3.2M. Con la base de datos veo todos mis leads organizados y hago seguimiento profesional.</p>
+        <div class="t-author"><div class="t-av">JG</div><div><div class="t-name">Julián García</div><div class="t-biz">Marketing digital — Barranquilla</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FLYER 3 -->
+<section class="flyer-sec" style="padding-bottom:0">
+  <div class="flyer-wrap rv">
+    <img class="flyer-img" src="assets/flyer.jpg" alt="Deja de perder ventas en WhatsApp. Vende con una landing page: automatiza, convierte, crece" loading="lazy">
+  </div>
+</section>
+
+<!-- PLANES -->
+<section id="planes">
+  <div class="container">
+    <div class="center rv">
+      <span class="eyebrow">Planes</span>
+      <h2>Una inversión única.<br><span class="au">Beneficios para siempre</span></h2>
+      <div class="rule"></div>
+      <p class="lead">Sin mensualidades. Sin letras pequeñas. Tu landing page es tuya de por vida.</p>
+    </div>
+    <div class="plans">
+
+      <div class="plan base rv">
+        <div class="plan-name">Plan <span class="au">Impulso</span></div>
+        <p class="plan-tagline">Tu landing page profesional, lista para vender</p>
+        <div class="plan-price">$350.000<br><small>PESOS COLOMBIANOS · ÚNICO PAGO</small></div>
+        <div class="plan-meta"><span>🛡️ Vitalicio</span><span>∞ Sin pagos mensuales</span></div>
+        <ul>
+          <li><span class="y">✓</span><span><b>Landing page profesional</b> — directa para vender y enfocada en resultados</span></li>
+          <li><span class="y">✓</span><span><b>Formularios</b> — captura y organiza clientes de forma efectiva</span></li>
+          <li><span class="y">✓</span><span><b>Diseño funcional</b> — optimizado para convertir visitantes en compradores</span></li>
+          <li><span class="y">✓</span><span><b>Asesoramiento</b> — te guiamos para que sepas cómo iniciar a vender</span></li>
+        </ul>
+        <button class="btn-plan" onclick="pickPlan('Plan Impulso – $350.000 COP')">Elegir Plan Impulso</button>
+      </div>
+
+      <div class="plan top rv">
+        <div class="plan-tag">★ Más elegido</div>
+        <div class="plan-name">Plan <span class="au">Vende+</span></div>
+        <p class="plan-tagline">Tu negocio, más ventas, más resultados</p>
+        <div class="plan-price">$500.000<br><small>PESOS COLOMBIANOS · ÚNICO PAGO</small></div>
+        <div class="plan-meta"><span>🛡️ Vitalicio</span><span>∞ Sin pagos mensuales</span><span>🔒 Sin letras pequeñas</span></div>
+        <ul>
+          <li><span class="y">✓</span><span><b>Todo lo del Plan Impulso</b> — landing profesional + asesoramiento para iniciar a vender</span></li>
+          <li><span class="y">✓</span><span><b>Dominio incluido</b> — tu propio dominio profesional para tu negocio</span></li>
+          <li><span class="y">✓</span><span><b>Curso de Facebook Ads</b> — aprende a crear campañas efectivas para atraer clientes</span></li>
+          <li><span class="y">✓</span><span><b>Estrategia de ventas</b> — te guiamos con una estrategia completa para vender más y mejor</span></li>
+          <li><span class="y">✓</span><span><b>Empresa de mensajería</b> — integración y asesoría para envíos rápidos y eficientes</span></li>
+          <li><span class="y">✓</span><span><b>Campañas publicitarias</b> — configuración y optimización para mejores resultados</span></li>
+          <li><span class="y">✓</span><span><b>Trazabilidad completa</b> — instalación de píxel y eventos para medir y escalar</span></li>
+          <li><span class="y">✓</span><span><b>Soporte y cambios</b> — soporte prioritario incluido durante 3 meses</span></li>
+        </ul>
+        <button class="btn-plan" onclick="pickPlan('Plan Vende+ – $500.000 COP')">Elegir Plan Vende+</button>
+      </div>
+
+    </div>
+    <div class="vital-note rv">
+      <b>Acompañamiento que genera resultados.</b> No estás solo: te acompañamos en cada paso, desde la entrega hasta tus primeras ventas.
+    </div>
+  </div>
+</section>
+
+<!-- FORMULARIO — ÚLTIMO BLOQUE -->
+<section id="form-section">
+  <div class="container">
+    <div class="center rv">
+      <span class="eyebrow">El siguiente paso es tuyo</span>
+      <h2>Solicita <span class="au">información</span></h2>
+      <div class="rule"></div>
+      <p class="lead">Déjame tus datos y te contacto con una propuesta personalizada para tu negocio. Sin compromiso.</p>
+    </div>
+    <div class="form-card rv">
+      <div id="form-fields">
+        <div class="form-head">
+          <h3>Cuéntame de tu negocio</h3>
+          <p>5 campos · 30 segundos · Tu información queda guardada de forma segura</p>
+        </div>
+
+        <div class="fg" id="g-nombre">
+          <label>Nombre completo <em>*</em></label>
+          <input id="f-nombre" class="fctl" type="text" placeholder="Ej: María González" autocomplete="name">
+          <div class="ferr">Por favor ingresa tu nombre completo.</div>
+        </div>
+
+        <div class="fg" id="g-whatsapp">
+          <label>Tu número de contacto <em>*</em></label>
+          <input id="f-whatsapp" class="fctl" type="tel" placeholder="Ej: 300 123 4567" autocomplete="tel">
+          <div class="ferr">Ingresa un número válido de 10 dígitos.</div>
+        </div>
+
+        <div class="fg" id="g-producto">
+          <label>¿Qué producto o servicio vendes? <em>*</em></label>
+          <input id="f-producto" class="fctl" type="text" placeholder="Ej: Ropa femenina, cursos online, uñas...">
+          <div class="ferr">Describe tu producto o servicio.</div>
+        </div>
+
+        <div class="fg" id="g-plan">
+          <label>Plan de tu interés <em>*</em></label>
+          <select id="f-plan" class="fctl">
+            <option value="">— Selecciona un plan —</option>
+            <option value="Plan Impulso – $350.000 COP">Plan Impulso – $350.000 COP</option>
+            <option value="Plan Vende+ – $500.000 COP">Plan Vende+ – $500.000 COP ★ Más elegido</option>
+            <option value="Aún no estoy seguro">Aún no estoy seguro, quiero asesoría</option>
+          </select>
+          <div class="ferr">Selecciona una opción.</div>
+        </div>
+
+        <div class="fg" id="g-mensaje">
+          <label>¿Algo más que deba saber? <span style="color:var(--muted);text-transform:none;font-weight:500">(opcional)</span></label>
+          <input id="f-mensaje" class="fctl" type="text" placeholder="Cuéntame sobre tu negocio o tus dudas...">
+        </div>
+
+        <button class="btn-send" id="btn-send">
+          Solicitar información
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+        </button>
+        <div class="form-fail" id="form-fail">No se pudo enviar tu solicitud. Revisa tu conexión e intenta de nuevo.</div>
+        <p class="form-note">🔒 Tu información es privada y queda guardada de forma segura · Respuesta en menos de 24h</p>
+      </div>
+
+      <div class="form-ok" id="form-ok">
+        <div class="big">🎉</div>
+        <h3>¡Solicitud recibida!</h3>
+        <p>Tu información quedó registrada. Te contactaré en menos de <strong style="color:var(--ink)">24 horas</strong> con tu propuesta personalizada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="logo"><span class="logo-mark">C</span>CreoTuLandingPage</div>
+  <p>© 2026 CreoTuLandingPage · Todos los derechos reservados</p>
+</footer>
+
+<!-- ===================== SCRIPTS ===================== -->
+<script type="module">
+/* ============================================================
+   FIREBASE — PEGA AQUÍ TU CONFIGURACIÓN
+   1. https://console.firebase.google.com → crea un proyecto
+   2. Agrega una "Web App" y copia el objeto firebaseConfig
+   3. Activa Firestore Database (modo producción)
+   4. Reglas de Firestore:
+      rules_version = '2';
+      service cloud.firestore {
+        match /databases/{database}/documents {
+          match /leads/{doc} {
+            allow create: if true;
+            allow read, update, delete: if false;
+          }
+        }
+      }
+   ============================================================ */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "TU_API_KEY",
+  authDomain: "TU_PROYECTO.firebaseapp.com",
+  projectId: "TU_PROYECTO",
+  storageBucket: "TU_PROYECTO.appspot.com",
+  messagingSenderId: "TU_SENDER_ID",
+  appId: "TU_APP_ID"
+};
+
+let db = null;
+try {
+  const app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+} catch (e) {
+  console.error("Firebase no inicializado. Revisa firebaseConfig.", e);
+}
+
+const $ = (id) => document.getElementById(id);
+function markBad(grp, bad) {
+  $(grp).classList.toggle("bad", bad);
+  $(grp).querySelector(".fctl").classList.toggle("bad", bad);
+}
+
+$("btn-send").addEventListener("click", async () => {
+  const nombre   = $("f-nombre").value.trim();
+  const whatsapp = $("f-whatsapp").value.replace(/\D/g, "");
+  const producto = $("f-producto").value.trim();
+  const plan     = $("f-plan").value;
+  const mensaje  = $("f-mensaje").value.trim();
+
+  markBad("g-nombre",   nombre.length < 3);
+  markBad("g-whatsapp", whatsapp.length !== 10);
+  markBad("g-producto", producto.length < 3);
+  markBad("g-plan",     !plan);
+
+  const ok = nombre.length >= 3 && whatsapp.length === 10 && producto.length >= 3 && plan;
+  if (!ok) {
+    document.querySelector(".fg.bad")?.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  const btn = $("btn-send");
+  btn.disabled = true;
+  btn.textContent = "Enviando...";
+  $("form-fail").style.display = "none";
+
+  try {
+    if (!db) throw new Error("Firebase no configurado");
+    await addDoc(collection(db, "leads"), {
+      nombre, whatsapp, producto, plan, mensaje,
+      fecha: serverTimestamp(),
+      origen: "landing-creotulandingpage"
+    });
+    $("form-fields").style.display = "none";
+    $("form-ok").style.display = "block";
+    document.querySelector(".form-card").scrollIntoView({ behavior: "smooth", block: "center" });
+  } catch (err) {
+    console.error("Error guardando lead:", err);
+    $("form-fail").style.display = "block";
+    btn.disabled = false;
+    btn.innerHTML = 'Solicitar información <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+  }
+});
+</script>
+
+<script>
+// SCROLL REVEAL
+var obs = new IntersectionObserver(function (es) {
+  es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("on"); obs.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+document.querySelectorAll(".rv").forEach(function (el, i) {
+  el.style.transitionDelay = (i % 4) * 0.07 + "s";
+  obs.observe(el);
+});
+
+// CHAT SIM
+(function () {
+  var items = document.querySelectorAll("#chat-body .bub, #chat-body .stress");
+  var notif = document.getElementById("notif");
+  var unread = document.getElementById("unread");
+  var base = 41, idx = 0;
+  function cycle() {
+    if (idx < items.length) {
+      items[idx].classList.add("show");
+      var n = base + idx + 1;
+      notif.textContent = n;
+      unread.textContent = n + " mensajes sin leer";
+      idx++;
+      setTimeout(cycle, 850);
+    } else {
+      setTimeout(function () {
+        items.forEach(function (el) { el.classList.remove("show"); });
+        idx = 0; setTimeout(cycle, 700);
+      }, 4200);
+    }
+  }
+  setTimeout(cycle, 900);
+})();
+
+// STATS COUNTER
+var statObs = new IntersectionObserver(function (es) {
+  es.forEach(function (e) {
+    if (!e.isIntersecting) return;
+    statObs.unobserve(e.target);
+    var el = e.target, target = +el.dataset.count;
+    var pre = el.dataset.prefix || "", suf = el.dataset.suffix || "";
+    var t0 = performance.now(), dur = 1400;
+    (function tick(t) {
+      var p = Math.min(1, (t - t0) / dur);
+      p = 1 - Math.pow(1 - p, 3);
+      el.textContent = pre + Math.round(target * p) + suf;
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  });
+}, { threshold: 0.6 });
+document.querySelectorAll(".stat-num").forEach(function (el) { statObs.observe(el); });
+
+// PICK PLAN
+function pickPlan(plan) {
+  document.getElementById("f-plan").value = plan;
+  document.getElementById("form-section").scrollIntoView({ behavior: "smooth" });
+  setTimeout(function () { document.getElementById("f-nombre").focus(); }, 800);
+}
+</script>
+</body>
+</html>
