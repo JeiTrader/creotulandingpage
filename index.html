@@ -102,7 +102,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 
 /* BAND */
 .band{background:var(--gold);color:var(--navy);padding:20px 0;overflow:hidden}
-.band-track{display:flex;gap:56px;white-space:nowrap;animation:marq 16s linear infinite}
+.band-track{display:flex;gap:56px;white-space:nowrap;animation:marq 8s linear infinite}
 @keyframes marq{to{transform:translateX(-50%)}}
 .band-item{font-family:var(--fd);font-weight:800;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:12px}
 
@@ -193,10 +193,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 .fg label em{color:var(--gold);font-style:normal}
 .fctl{width:100%;background:var(--navy);border:1.5px solid rgba(255,255,255,.12);color:var(--ink);font-family:var(--fb);font-size:.95rem;padding:15px 16px;transition:border-color .2s,box-shadow .2s;outline:none;appearance:none;border-radius:0}
 .fctl:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(212,175,55,.14)}
-.fctl.bad{border-color:#e05252}
+.fctl.bad{border-color:#e05252;box-shadow:0 0 0 4px rgba(224,82,82,.15)}
+.fctl.ok{border-color:#4caf50;box-shadow:0 0 0 4px rgba(76,175,80,.14)}
 select.fctl{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
 .ferr{display:none;color:#e58989;font-size:.76rem;margin-top:6px;font-weight:500}
 .fg.bad .ferr{display:block}
+@keyframes hintIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.tel-hint{display:none;font-size:.78rem;font-weight:700;margin-top:8px;padding:9px 12px;border-radius:4px;animation:hintIn .25s ease}
+.tel-hint.visible{display:block}
+.tel-hint.error{background:rgba(224,82,82,.14);color:#ff8a80;border-left:3px solid #e05252}
+.tel-hint.success{background:rgba(76,175,80,.14);color:#8bd996;border-left:3px solid #4caf50}
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media(max-width:560px){.frow{grid-template-columns:1fr}}
 .btn-send{width:100%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--gold);color:var(--navy);font-family:var(--fd);font-weight:900;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;padding:19px;margin-top:10px;transition:transform .2s,background .2s;animation:glowGold 2.8s ease-in-out infinite}
@@ -211,6 +217,12 @@ select.fctl{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3
 
 footer{border-top:1px solid var(--line);padding:38px 0;text-align:center;color:var(--muted);font-size:.78rem;background:var(--navy2)}
 footer .logo{justify-content:center;margin-bottom:10px}
+.footer-social{display:flex;justify-content:center;align-items:center;gap:12px;margin:14px 0}
+.social-ic{width:32px;height:32px;border-radius:50%;background:rgba(212,175,55,.12);border:1px solid var(--line);display:grid;place-items:center;color:var(--gold);transition:background .2s,transform .2s,color .2s}
+.social-ic:hover{background:var(--gold);color:var(--navy);transform:translateY(-2px)}
+.social-ic svg{width:15px;height:15px;fill:currentColor}
+.footer-address{margin-bottom:8px;display:flex;justify-content:center;align-items:center;gap:7px}
+.footer-address .flag{width:18px;height:13px;border-radius:2px;flex-shrink:0}
 
 @media(max-width:900px){
   .hero-grid,.split{grid-template-columns:1fr;gap:52px;text-align:center}
@@ -507,7 +519,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
         <div class="fg" id="g-whatsapp">
           <label>Tu número de contacto <em>*</em></label>
           <input id="f-whatsapp" class="fctl" type="tel" inputmode="numeric" maxlength="10" placeholder="Ej: 300 123 4567" autocomplete="tel">
-          <div class="ferr" id="err-whatsapp">Ingresa un número válido de 10 dígitos que empiece por 3.</div>
+          <div class="tel-hint" id="err-whatsapp"></div>
         </div>
 
         <div class="fg" id="g-producto">
@@ -552,7 +564,19 @@ footer .logo{justify-content:center;margin-bottom:10px}
 
 <footer>
   <div class="logo"><span class="logo-mark">C</span>CreoTuLandingPage</div>
-  <p>© 2026 CreoTuLandingPage · Bogotá, Colombia · Todos los derechos reservados</p>
+  <div class="footer-social">
+    <a href="https://facebook.com/creotulandingpage" target="_blank" rel="noopener" aria-label="Facebook" class="social-ic">
+      <svg viewBox="0 0 24 24"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
+    </a>
+    <a href="https://wa.me/573123088194" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-ic">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.22-8.24 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31s-.88.86-.88 2.1.9 2.44 1.02 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+    </a>
+  </div>
+  <p class="footer-address">
+    <svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#FCD116"/><rect width="3" height="1" y="1" fill="#003893"/><rect width="3" height="0.5" y="1.5" fill="#CE1126"/></svg>
+    Cra 11 # 93-12, Bogotá, Colombia
+  </p>
+  <p>© 2026 CreoTuLandingPage · Todos los derechos reservados</p>
 </footer>
 
 <!-- ===================== SCRIPTS ===================== -->
@@ -623,15 +647,40 @@ function whatsappValida(v) {
 
 const inputWhatsapp = $("f-whatsapp");
 const errWhatsapp = $("err-whatsapp");
+
+function limpiarHintTel() {
+  errWhatsapp.className = "tel-hint";
+  errWhatsapp.textContent = "";
+  inputWhatsapp.classList.remove("bad", "ok");
+}
+function mostrarErrorTel(msg) {
+  errWhatsapp.textContent = "⚠️ " + msg;
+  errWhatsapp.className = "tel-hint error visible";
+  inputWhatsapp.classList.remove("ok");
+  inputWhatsapp.classList.add("bad");
+}
+function mostrarOkTel(msg) {
+  errWhatsapp.textContent = "✅ " + msg;
+  errWhatsapp.className = "tel-hint success visible";
+  inputWhatsapp.classList.remove("bad");
+  inputWhatsapp.classList.add("ok");
+}
+
 inputWhatsapp.addEventListener("input", () => {
   inputWhatsapp.value = inputWhatsapp.value.replace(/\D/g, "").slice(0, 10);
   const v = inputWhatsapp.value;
-  const faltan = 10 - v.length;
-  if (!v) { errWhatsapp.textContent = `Ingresa un número válido de 10 dígitos que empiece por 3. Faltan ${faltan} dígitos.`; return; }
-  if (!v.startsWith("3") && faltan > 0) { errWhatsapp.textContent = `El número debe comenzar por 3. Faltan ${faltan} dígitos.`; return; }
-  if (!v.startsWith("3")) { errWhatsapp.textContent = "El número debe comenzar por 3."; return; }
-  if (faltan > 0) { errWhatsapp.textContent = `Faltan ${faltan} dígitos.`; return; }
-  errWhatsapp.textContent = "Número válido ✓";
+
+  if (!v) { limpiarHintTel(); return; }
+  if (!v.startsWith("3")) { mostrarErrorTel("El número debe comenzar por 3 — Ej: 3001234567"); return; }
+  if (v.length < 10) {
+    const faltan = 10 - v.length;
+    errWhatsapp.textContent = `📱 Faltan ${faltan} dígito${faltan > 1 ? "s" : ""} — ${v.length}/10`;
+    errWhatsapp.className = "tel-hint error visible";
+    inputWhatsapp.classList.remove("ok");
+    inputWhatsapp.classList.add("bad");
+    return;
+  }
+  mostrarOkTel("Número válido");
 });
 
 $("btn-send").addEventListener("click", async () => {
@@ -645,6 +694,7 @@ $("btn-send").addEventListener("click", async () => {
   markBad("g-whatsapp", !whatsappValida(whatsapp));
   markBad("g-producto", producto.length < 3);
   markBad("g-plan",     !plan);
+  if (!whatsapp) mostrarErrorTel("Ingresa tu número de WhatsApp — Ej: 3001234567");
 
   const ok = nombre.length >= 3 && whatsappValida(whatsapp) && producto.length >= 3 && plan;
   if (!ok) {
