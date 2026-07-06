@@ -9,3 +9,6 @@ desktop.ini
 
 # Estado local de Netlify CLI
 .netlify/
+
+# Creativos de anuncios (no forman parte del sitio, solo se suben directo a Meta Ads)
+/ads/
