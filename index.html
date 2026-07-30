@@ -293,8 +293,45 @@ footer .logo{justify-content:center;margin-bottom:10px}
 .footer-address{margin-bottom:8px;display:flex;justify-content:center;align-items:center;gap:7px}
 .footer-address .flag{width:18px;height:13px;border-radius:2px;flex-shrink:0}
 
+/* CHECKLIST ¿ES PARA TI? */
+.check-list{max-width:820px;margin:48px auto 0;display:grid;gap:2px;background:var(--line)}
+.check{background:var(--navy2);padding:20px 26px;display:flex;gap:16px;align-items:flex-start;font-size:1rem;color:#dfe6f2;text-align:left}
+.check .tick{color:var(--gold);font-weight:900;flex-shrink:0;font-size:1.1rem;line-height:1.5}
+.check-verdict{max-width:820px;margin:32px auto 0;text-align:center}
+.check-verdict p{font-family:var(--fd);font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.check-verdict span{color:var(--muted);font-size:.92rem}
+
+/* RESULTADOS REALES */
+.resultados{display:grid;gap:2px;margin-top:52px;background:var(--line)}
+.res-row{background:var(--navy2);display:grid;grid-template-columns:1fr 56px 1fr;align-items:center;gap:0}
+.res-col{padding:24px 26px}
+.res-col .tag{font-family:var(--fd);font-size:.66rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:8px}
+.res-col p{font-size:.95rem;line-height:1.5;margin:0}
+.res-antes{border-left:3px solid var(--red)}
+.res-antes .tag{color:#e58989}
+.res-antes p{color:var(--muted)}
+.res-despues{border-left:3px solid var(--green)}
+.res-despues .tag{color:#8bd996}
+.res-despues p{color:#dfe6f2}
+.res-arrow{display:grid;place-items:center;font-size:1.3rem;color:var(--gold);font-weight:800}
+
+/* SOCIAL PROOF NÚMEROS */
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;margin-top:48px;background:var(--line)}
+.proof-item{background:var(--navy2);padding:36px 22px;text-align:center}
+.proof-number{font-family:var(--fd);font-size:2.6rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:10px}
+.proof-label{color:var(--muted);font-size:.86rem;line-height:1.45}
+
+/* TRUST BADGES */
+.trust-badges{display:flex;justify-content:center;gap:34px;margin:0 0 24px;flex-wrap:wrap}
+.badge{text-align:center;max-width:170px}
+.badge .bic{font-size:1.4rem;display:block;margin-bottom:6px}
+.badge p{margin:0;color:var(--muted);font-size:.76rem;line-height:1.4}
+
 @media(max-width:900px){
   .hero-grid,.split,.story-split{grid-template-columns:1fr;gap:46px;text-align:center}
+  .res-row{grid-template-columns:1fr}
+  .res-arrow{padding:0 0 10px;font-size:1.1rem;transform:rotate(90deg)}
+  .check{text-align:left}
   .story-split.rev .story-txt{order:0}
   .hero-sub,.lead,.story-p{margin-left:auto;margin-right:auto}
   .rule{margin-left:auto;margin-right:auto}
@@ -326,7 +363,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
         <div class="hero-kicker"><span class="dot"></span> Una historia real sobre libertad digital</div>
         <p class="hero-intro">Me llamo <strong>Jeisson</strong>, soy <strong>programador</strong> de <strong>Bogotá</strong>. Hace poco un familiar de nombre <strong>John</strong> me contó sobre su negocio de ropa infantil, GKKids. Lo que vi me rompió el corazón — así que hice algo al respecto.</p>
         <h1>Cómo salvé a John<br>de su <span class="gold-grad">celular</span></h1>
-        <p class="hero-sub">Esta es la historia de cómo un empresario trabajador estaba siendo comido vivo por su propio negocio. De cómo descubrí el problema. Y de cómo una landing page simple le devolvió su vida.</p>
+        <p class="hero-sub">John estaba respondiendo WhatsApp de 6 de la mañana a 11 de la noche. Su negocio vendía bien, pero lo estaba devorando. <strong>Hoy vende más sin estar pegado al teléfono.</strong> Esta es su historia — y cómo puedo hacerlo por ti también.</p>
         <a href="#capitulo-1" class="scroll-hint">
           Te cuento cómo
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -445,6 +482,17 @@ footer .logo{justify-content:center;margin-bottom:10px}
         <p style="color:var(--muted);font-size:.93rem">John dejó de estar pegado al celular explicando lo evidente. Ahora usa su tiempo en lo que realmente crece: producir más, despachar más, conseguir más clientes. Y lo más importante: tiene su vida de vuelta.</p>
       </div>
     </div>
+
+    <div class="narrow rv" style="margin-top:64px">
+      <div class="center" style="margin-bottom:26px">
+        <h2 style="font-size:clamp(1.4rem,3vw,2rem)">Esta es <span class="au">la página que le hice</span></h2>
+        <div class="rule"></div>
+      </div>
+      <figure class="photo" style="max-width:340px;margin:0 auto">
+        <img src="assets/gkkids-landing-real.jpg" alt="La landing page real de GKKids: colección Dragon Ball con precios, tallas, colores disponibles y botón de compra" loading="lazy">
+        <figcaption><b>La landing de GKKids, funcionando hoy.</b> Precio, tallas, colores, envíos y el botón de compra — todo respondido antes de que el cliente escriba. Por eso John ya no contesta "¿cuánto vale?".</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -482,14 +530,73 @@ footer .logo{justify-content:center;margin-bottom:10px}
   </div>
 </section>
 
-<!-- PARA QUIÉN SIRVE -->
-<section id="para-quien">
+<!-- RESULTADOS REALES -->
+<section id="resultados">
   <div class="container">
     <div class="center rv">
-      <span class="eyebrow">¿Sirve para lo que yo vendo?</span>
-      <h2>Si lo vendes por redes,<br><span class="au">esta página lo vende mejor</span></h2>
+      <span class="eyebrow">Lo que cambió</span>
+      <h2>Los números reales <span class="au">de GKKids</span></h2>
       <div class="rule"></div>
-      <p class="lead">Yo empecé con ropa infantil, pero el sistema es el mismo para cualquier negocio que hoy recibe pedidos por chat.</p>
+      <p class="lead">No son promesas ni proyecciones. Es lo que pasó en el negocio de John antes y después de tener su landing page.</p>
+    </div>
+
+    <div class="resultados">
+      <div class="res-row rv">
+        <div class="res-col res-antes"><span class="tag">Antes</span><p>8 de cada 10 mensajes eran curiosos que nunca compraban</p></div>
+        <div class="res-arrow">→</div>
+        <div class="res-col res-despues"><span class="tag">Ahora</span><p>Solo 2 de cada 10. Los demás ya se filtraron en la página</p></div>
+      </div>
+      <div class="res-row rv">
+        <div class="res-col res-antes"><span class="tag">Antes</span><p>Respondía WhatsApp de 6 de la mañana a 11 de la noche, todos los días</p></div>
+        <div class="res-arrow">→</div>
+        <div class="res-col res-despues"><span class="tag">Ahora</span><p>Horario normal de respuesta. El fin de semana vuelve a ser descanso</p></div>
+      </div>
+      <div class="res-row rv">
+        <div class="res-col res-antes"><span class="tag">Antes</span><p>Cero campañas de publicidad — no tenía tiempo ni para pensarlas</p></div>
+        <div class="res-arrow">→</div>
+        <div class="res-col res-despues"><span class="tag">Ahora</span><p>Campañas activas trayendo clientes nuevos cada semana</p></div>
+      </div>
+      <div class="res-row rv">
+        <div class="res-col res-antes"><span class="tag">Antes</span><p>Perdía ventas por tardarse en responder: 20 minutos y el cliente compraba en otro lado</p></div>
+        <div class="res-arrow">→</div>
+        <div class="res-col res-despues"><span class="tag">Ahora</span><p>Llegan decididos: ya vieron precio, tallas y envío antes de escribir</p></div>
+      </div>
+      <div class="res-row rv">
+        <div class="res-col res-antes"><span class="tag">Antes</span><p>No podía surtir bien el inventario — el celular le consumía el día</p></div>
+        <div class="res-arrow">→</div>
+        <div class="res-col res-despues"><span class="tag">Ahora</span><p>Bodega completa y la transportadora pasa directo a recoger los pedidos</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ¿ES PARA TI? -->
+<section id="para-quien" style="background:var(--navy2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="container">
+    <div class="center rv">
+      <span class="eyebrow">¿Es para ti?</span>
+      <h2>Si reconoces tu negocio aquí,<br><span class="au">esto es exactamente para ti</span></h2>
+      <div class="rule"></div>
+      <p class="lead">Si cumples 3 o más de estos puntos, esta solución fue hecha para tu caso.</p>
+    </div>
+
+    <div class="check-list">
+      <div class="check rv"><span class="tick">✓</span><span>Respondes WhatsApp desde muy temprano hasta muy tarde — de 6 de la mañana a 11 de la noche</span></div>
+      <div class="check rv"><span class="tick">✓</span><span>De cada 10 mensajes que recibes, 8 son curiosos sin intención real de comprar</span></div>
+      <div class="check rv"><span class="tick">✓</span><span>Pierdes clientes porque demoras en responder — 20 minutos y ya compraron en otro lado</span></div>
+      <div class="check rv"><span class="tick">✓</span><span>No tienes tiempo para hacer campañas de publicidad que te traigan clientes nuevos</span></div>
+      <div class="check rv"><span class="tick">✓</span><span>Quieres vender más, pero sin vivir pegado al teléfono ni perder tus fines de semana</span></div>
+    </div>
+
+    <div class="check-verdict rv">
+      <p>¿Reconoces tu negocio aquí? Sigue leyendo.</p>
+      <span>Y si solo aplican algunos, también es para ti — el problema empieza igual.</span>
+    </div>
+
+    <div class="center rv" style="margin-top:70px">
+      <h2 style="font-size:clamp(1.4rem,3vw,2rem)">Funciona con <span class="au">lo que tú vendas</span></h2>
+      <div class="rule"></div>
+      <p class="lead">John vende ropa infantil, pero el sistema es el mismo para cualquier negocio que hoy recibe pedidos por chat.</p>
     </div>
     <div class="nichos">
       <div class="nicho rv"><span class="em">👕</span><div class="nm">Ropa</div><div class="ds">Infantil, femenina, deportiva</div></div>
@@ -510,15 +617,14 @@ footer .logo{justify-content:center;margin-bottom:10px}
   <div class="container">
     <div class="center rv">
       <span class="eyebrow">Cómo funciona</span>
-      <h2>De visitante a cliente <span class="au">en 5 pasos</span></h2>
+      <h2>De visitante a cliente <span class="au">en 4 pasos</span></h2>
       <div class="rule"></div>
     </div>
     <div class="steps">
-      <div class="step rv"><div class="step-n">01</div><div><h3>El cliente entra a tu landing</h3><p>Desde tus redes, anuncios o el link en la bio llega a una página profesional que proyecta confianza desde el primer segundo.</p></div></div>
-      <div class="step rv"><div class="step-n">02</div><div><h3>Ve toda la información sin preguntar</h3><p>Precio, colores, tallas, envíos, tiempos de entrega: todo respondido antes de que escriba una sola palabra.</p></div></div>
-      <div class="step rv"><div class="step-n">03</div><div><h3>Se filtra automáticamente</h3><p>Los curiosos se van solos. Solo los interesados reales continúan al siguiente paso.</p></div></div>
-      <div class="step rv"><div class="step-n">04</div><div><h3>Deja sus datos en el formulario</h3><p>Nombre, contacto y qué quiere comprar: organizado en tu base de datos, listo para tu seguimiento.</p></div></div>
-      <div class="step rv"><div class="step-n">05</div><div><h3>Tú solo confirmas y cobras</h3><p>Sin explicar, sin convencer, sin repetir. El trabajo pesado ya está hecho.</p></div></div>
+      <div class="step rv"><div class="step-n">01</div><div><h3>Tú envías el tráfico</h3><p>Desde tus redes, tus anuncios o el link en la bio: tu audiencia llega a una página profesional que proyecta confianza desde el primer segundo.</p></div></div>
+      <div class="step rv"><div class="step-n">02</div><div><h3>La landing responde todo</h3><p>Precio, colores, tallas, envíos y tiempos de entrega: respondido antes de que escriban una sola palabra.</p></div></div>
+      <div class="step rv"><div class="step-n">03</div><div><h3>Se filtra automáticamente</h3><p>Los curiosos se van solos. Solo los compradores serios dejan sus datos y llegan a tu WhatsApp.</p></div></div>
+      <div class="step rv"><div class="step-n">04</div><div><h3>Tú cierras la venta</h3><p>Llegan decididos. Tú solo confirmas, despachas y cobras. El trabajo pesado ya está hecho.</p></div></div>
     </div>
   </div>
 </section>
@@ -598,7 +704,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
           <li>Asesoramiento para que sepas cómo empezar a vender</li>
           <li>Vitalicia: es tuya para siempre, sin mensualidades</li>
         </ul>
-        <button class="btn-plan" onclick="pickPlan('Plan Impulso – $350.000 COP')">Quiero el Plan Impulso</button>
+        <button class="btn-plan" onclick="pickPlan('Plan Impulso – $350.000 COP')">Ver detalles · sin compromiso</button>
       </div>
 
       <div class="plan top rv">
@@ -617,12 +723,28 @@ footer .logo{justify-content:center;margin-bottom:10px}
           <li><b>Soporte prioritario y cambios</b> durante 3 meses</li>
           <li><b>Acompañamiento</b> hasta que veas tus primeras ventas</li>
         </ul>
-        <button class="btn-plan" onclick="pickPlan('Plan Vende+ – $500.000 COP')">Quiero el Plan Vende+</button>
+        <button class="btn-plan" onclick="pickPlan('Plan Vende+ – $500.000 COP')">Ver detalles · sin compromiso</button>
       </div>
 
     </div>
     <div class="vital-note rv">
       <b>Acompañamiento que genera resultados.</b> No estás solo: te acompaño en cada paso, desde la entrega hasta tus primeras ventas.
+    </div>
+
+    <!-- ⚠️ REVISAR: cifras verificables. Si tienes números reales de clientes, reemplazar. -->
+    <div class="proof-grid rv">
+      <div class="proof-item">
+        <div class="proof-number">24h</div>
+        <div class="proof-label">Tiempo máximo de respuesta a tu solicitud</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">1</div>
+        <div class="proof-label">Pago único. Sin mensualidades, nunca</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number">3</div>
+        <div class="proof-label">Meses de soporte y cambios incluidos en Vende+</div>
+      </div>
     </div>
   </div>
 </section>
@@ -653,6 +775,18 @@ footer .logo{justify-content:center;margin-bottom:10px}
         <div class="ans">Depende de qué tan rápido me pases la información de tu producto (fotos, precios, detalles). Con el material completo, en pocos días la tienes publicada y funcionando.</div>
       </details>
       <details>
+        <summary>¿En cuánto tiempo veo resultados?</summary>
+        <div class="ans">Depende del tráfico que le mandes. Con la página lista y tráfico dirigido, entre 15 y 30 días notas la diferencia: menos mensajes de curiosos y más gente que llega decidida. La página no genera visitas sola — la clave es enviarle tráfico desde tus redes o tus anuncios.</div>
+      </details>
+      <details>
+        <summary>¿Hay garantía de ventas?</summary>
+        <div class="ans">Te voy a ser honesto: no puedo garantizar ventas, porque dependen de tu producto, de tu precio, del tráfico que envíes y de tu seguimiento. Lo que sí garantizo es que la página queda construida profesionalmente y optimizada para convertir, y que quien llegue a tu WhatsApp ya vio precio, tallas y envíos — o sea, llega como comprador real y no como curioso.</div>
+      </details>
+      <details>
+        <summary>¿Puedo usar la landing para varias categorías?</summary>
+        <div class="ans">Sí. Si vendes varias cosas (ropa y accesorios, por ejemplo), la página se arma para mostrarlas organizadas por categoría, de modo que cada visitante encuentre rápido lo que le interesa sin perderse.</div>
+      </details>
+      <details>
         <summary>¿Y si después quiero cambiar algo?</summary>
         <div class="ans">Con el Plan Vende+ tienes soporte y cambios incluidos durante 3 meses. Con el Plan Impulso puedes pedir ajustes puntuales cuando los necesites.</div>
       </details>
@@ -677,7 +811,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
       <div id="form-fields">
         <div class="form-head">
           <h3>Cuéntame de tu negocio</h3>
-          <p>5 campos · 30 segundos · Tu información queda guardada de forma segura</p>
+          <p>3 campos · 20 segundos · Tu información queda guardada de forma segura</p>
         </div>
 
         <div class="fg" id="g-nombre">
@@ -687,8 +821,8 @@ footer .logo{justify-content:center;margin-bottom:10px}
         </div>
 
         <div class="fg" id="g-whatsapp">
-          <label>Tu número de contacto <em>*</em></label>
-          <input id="f-whatsapp" class="fctl" type="tel" inputmode="numeric" maxlength="10" placeholder="Ej: 300 123 4567" autocomplete="tel">
+          <label>Tu número de WhatsApp <em>*</em></label>
+          <input id="f-whatsapp" class="fctl" type="tel" inputmode="numeric" maxlength="10" placeholder="Ej: 3201234567" autocomplete="tel">
           <div class="tel-hint" id="err-whatsapp"></div>
         </div>
 
@@ -698,24 +832,11 @@ footer .logo{justify-content:center;margin-bottom:10px}
           <div class="ferr">Describe tu producto o servicio.</div>
         </div>
 
-        <div class="fg" id="g-plan">
-          <label>Plan de tu interés <em>*</em></label>
-          <select id="f-plan" class="fctl">
-            <option value="">— Selecciona un plan —</option>
-            <option value="Plan Impulso – $350.000 COP">Plan Impulso – $350.000 COP</option>
-            <option value="Plan Vende+ – $500.000 COP">Plan Vende+ – $500.000 COP ★ Más elegido</option>
-            <option value="Aún no estoy seguro">Aún no estoy seguro, quiero asesoría</option>
-          </select>
-          <div class="ferr">Selecciona una opción.</div>
-        </div>
-
-        <div class="fg" id="g-mensaje">
-          <label>¿Algo más que deba saber? <span style="color:var(--muted);text-transform:none;font-weight:500">(opcional)</span></label>
-          <input id="f-mensaje" class="fctl" type="text" placeholder="Cuéntame sobre tu negocio o tus dudas...">
-        </div>
+        <!-- Plan de interés: se captura en silencio cuando el usuario llega desde un botón de plan -->
+        <input id="f-plan" type="hidden" value="">
 
         <button class="btn-send" id="btn-send">
-          Solicitar información
+          Enviar y contactar por WhatsApp
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
         </button>
         <div class="form-fail" id="form-fail">No se pudo enviar tu solicitud. Revisa tu conexión e intenta de nuevo.</div>
@@ -758,6 +879,11 @@ footer .logo{justify-content:center;margin-bottom:10px}
     <a href="https://wa.me/573202892103" target="_blank" rel="noopener" aria-label="WhatsApp" class="social-ic">
       <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.22-8.24 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31s-.88.86-.88 2.1.9 2.44 1.02 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
     </a>
+  </div>
+  <div class="trust-badges">
+    <div class="badge"><span class="bic">🔒</span><p>Tus datos son privados y quedan guardados de forma segura</p></div>
+    <div class="badge"><span class="bic">💬</span><p>Respuesta en menos de 24 horas</p></div>
+    <div class="badge"><span class="bic">✓</span><p>Pago único, sin mensualidades ni letra pequeña</p></div>
   </div>
   <p class="footer-address">
     <svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#FCD116"/><rect width="3" height="1" y="1" fill="#003893"/><rect width="3" height="0.5" y="1.5" fill="#CE1126"/></svg>
@@ -937,16 +1063,15 @@ $("btn-send").addEventListener("click", async () => {
   const nombre   = $("f-nombre").value.trim();
   const whatsapp = $("f-whatsapp").value.replace(/\D/g, "");
   const producto = $("f-producto").value.trim();
-  const plan     = $("f-plan").value;
-  const mensaje  = $("f-mensaje").value.trim();
+  const plan     = $("f-plan").value || "No especificado";
+  const mensaje  = "";
 
   markBad("g-nombre",   nombre.length < 3);
   markBad("g-whatsapp", !whatsappValida(whatsapp));
   markBad("g-producto", producto.length < 3);
-  markBad("g-plan",     !plan);
   if (!whatsapp) mostrarErrorTel("Ingresa tu número de WhatsApp — Ej: 3001234567");
 
-  const ok = nombre.length >= 3 && whatsappValida(whatsapp) && producto.length >= 3 && plan;
+  const ok = nombre.length >= 3 && whatsappValida(whatsapp) && producto.length >= 3;
   if (!ok) {
     document.querySelector(".fg.bad")?.scrollIntoView({ behavior: "smooth", block: "center" });
     return;
@@ -976,12 +1101,12 @@ $("btn-send").addEventListener("click", async () => {
     $("popup-btn-wa").href = `https://wa.me/573202892103?text=${waMsg}`;
     $("popup-ok").classList.add("visible");
     btn.disabled = false;
-    btn.innerHTML = 'Solicitar información <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+    btn.innerHTML = 'Enviar y contactar por WhatsApp <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
   } catch (err) {
     console.error("Error guardando lead:", err);
     $("form-fail").style.display = "block";
     btn.disabled = false;
-    btn.innerHTML = 'Solicitar información <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+    btn.innerHTML = 'Enviar y contactar por WhatsApp <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
   }
 });
 </script>
