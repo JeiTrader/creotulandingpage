@@ -43,7 +43,7 @@ h2{font-size:clamp(1.8rem,3.8vw,2.8rem);font-weight:800;margin-bottom:16px;text-
 h3{font-size:1.1rem;font-weight:700}
 .container{max-width:1140px;margin:0 auto;padding:0 24px}
 .narrow{max-width:760px;margin:0 auto}
-section{padding:88px 0;position:relative}
+section{padding:52px 0;position:relative}
 .au{color:var(--gold)}
 .gold-grad{background:linear-gradient(110deg,var(--gold2),var(--gold) 60%,var(--gold-d));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .eyebrow{display:inline-block;background:var(--gold);color:var(--navy);font-family:var(--fd);font-size:.7rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;padding:7px 18px;margin-bottom:22px}
@@ -76,8 +76,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
   radial-gradient(900px 500px at 85% 10%,rgba(212,175,55,.09),transparent 60%),
   radial-gradient(700px 500px at 0% 90%,rgba(16,31,60,.9),transparent 60%),var(--navy)}
 .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
-.hero-kicker{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
-.hero-kicker .dot{width:7px;height:7px;background:var(--gold);animation:blink 1.8s infinite}
+.hero-kicker{display:inline-flex;align-items:center;gap:14px;font-family:var(--fd);font-size:1.5rem;font-weight:900;letter-spacing:.01em;line-height:1.15;color:var(--gold2);margin-bottom:12px}
+.hero-kicker .dot{width:11px;height:11px;border-radius:50%;background:var(--gold);animation:blink 1.8s infinite;flex-shrink:0}
+.hero-kicker2{font-family:var(--fd);font-size:.92rem;font-weight:700;letter-spacing:.06em;color:var(--muted);margin:0 0 24px 25px}
 .hero-intro{font-family:var(--fd);font-size:1.05rem;font-weight:600;color:#dfe6f2;margin-bottom:14px}
 .hero-intro strong{color:var(--gold2);font-weight:800}
 .hero-sub{color:var(--muted);font-size:1.12rem;margin:26px 0 0;max-width:560px}
@@ -106,25 +107,30 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 .lost-num{font-family:var(--fd);font-size:1.3rem;font-weight:800;color:var(--red)}
 
 /* CHAPTER TAG */
-.chapter{display:flex;align-items:center;gap:14px;margin-bottom:26px}
-.chapter-n{font-family:var(--fd);font-size:.72rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:6px 14px}
-.chapter-t{font-family:var(--fd);font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.chapter{display:flex;align-items:center;gap:16px;margin-bottom:26px}
+.chapter-n{font-family:var(--fd);font-size:.72rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:6px 14px;flex-shrink:0}
+.chapter-t{font-family:var(--fd);font-size:1.15rem;font-weight:800;font-style:italic;letter-spacing:.01em;color:var(--gold2)}
 
 /* PHOTO */
-.photo{position:relative;border:1px solid var(--line);background:var(--navy2);padding:10px;box-shadow:0 30px 70px rgba(0,0,0,.5)}
-.photo img{width:100%;display:block}
-.photo figcaption{color:var(--muted);font-size:.83rem;padding:14px 6px 4px;line-height:1.5;border-top:1px solid rgba(255,255,255,.05);margin-top:10px}
+.photo{position:relative;border:1px solid var(--line);background:var(--navy2);padding:0;box-shadow:0 30px 70px rgba(0,0,0,.5);overflow:hidden}
+.photo img{width:100%;display:block;cursor:default}
+.photo figcaption{color:var(--muted);font-size:.83rem;padding:16px 18px 18px;line-height:1.5;border-top:1px solid rgba(255,255,255,.05)}
 .photo figcaption b{color:var(--gold2);font-weight:700}
+
+/* GALLERY FULL-BLEED */
+.bleed{width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+.bleed .gallery{gap:2px;background:var(--line)}
+.bleed .photo{border:none;box-shadow:none}
 .story-split{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
 .story-split.rev .story-txt{order:2}
 
 /* PAIN LIST */
-.pain-list{display:grid;gap:2px;margin-top:40px;background:var(--line)}
+.pain-list{display:grid;gap:2px;margin-top:26px;background:var(--line)}
 .pain{background:var(--navy2);padding:20px 24px;display:flex;gap:16px;align-items:flex-start;font-size:.97rem;color:#cfd8e6}
 .pain .x{color:var(--red);font-weight:800;flex-shrink:0;font-size:1.05rem;line-height:1.5}
 
 /* QUESTION CARDS */
-.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;margin-top:48px;background:var(--line)}
+.grid-4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px;margin-top:30px;background:var(--line)}
 .pcard{background:var(--navy2);padding:32px 26px;transition:background .3s}
 .pcard:hover{background:var(--navy3)}
 .pcard .q{font-family:var(--fd);font-size:1.2rem;font-weight:800;color:var(--gold);margin-bottom:10px;display:block}
@@ -134,7 +140,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 .break-quote{margin:0 auto;max-width:820px;border-left:4px solid var(--gold);background:var(--navy2);padding:44px 46px}
 .break-quote p:first-child{font-family:var(--fd);font-size:clamp(1.25rem,2.6vw,1.7rem);font-weight:700;line-height:1.3;margin-bottom:18px}
 .break-quote p:last-child{color:var(--muted);font-size:1rem;margin-bottom:0}
-.punch{text-align:center;font-family:var(--fd);font-size:clamp(1.5rem,3.4vw,2.3rem);font-weight:900;line-height:1.2;text-transform:uppercase;margin:56px auto 0;max-width:820px}
+.punch{text-align:center;font-family:var(--fd);font-size:clamp(1.5rem,3.4vw,2.3rem);font-weight:900;line-height:1.2;text-transform:uppercase;margin:32px auto 0;max-width:820px}
 
 /* DEF */
 #descubrimiento{background:var(--navy2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -142,17 +148,17 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 .def-card{background:var(--navy);border:1px solid var(--line);padding:38px}
 .def-card .big-def{font-family:var(--fd);font-size:1.3rem;font-weight:700;line-height:1.35;margin-bottom:18px}
 .def-card .big-def .au{border-bottom:3px solid var(--gold)}
-.def-list{display:grid;gap:16px;margin-top:26px}
+.def-list{display:grid;gap:16px;margin-top:18px}
 .def-item{display:flex;gap:14px;align-items:flex-start}
 .def-item .ic{width:38px;height:38px;flex-shrink:0;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-size:.95rem}
 .def-item h3{margin-bottom:3px;text-transform:none;font-size:1rem}
 .def-item p{color:var(--muted);font-size:.87rem}
 
 /* GALLERY */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:52px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-top:30px}
 
 /* NICHOS */
-.nichos{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px;margin-top:48px;background:var(--line)}
+.nichos{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:2px;margin-top:30px;background:var(--line)}
 .nicho{background:var(--navy2);padding:30px 18px;text-align:center;transition:background .3s,transform .3s}
 .nicho:hover{background:var(--navy3);transform:translateY(-3px)}
 .nicho .em{font-size:2rem;display:block;margin-bottom:12px}
@@ -160,7 +166,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 .nicho .ds{color:var(--muted);font-size:.78rem;margin-top:6px}
 
 /* PILARES */
-.pilares{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin:52px 0 0}
+.pilares{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin:30px 0 0}
 .pilar{background:var(--navy);border:1px solid var(--line);padding:30px 26px;text-align:center}
 .pilar .pic{width:52px;height:52px;margin:0 auto 16px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;font-size:1.4rem}
 .pilar h3{text-transform:uppercase;font-size:1rem;letter-spacing:.06em;margin-bottom:10px;color:var(--gold2)}
@@ -180,7 +186,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 .firma-rol{color:var(--muted);font-size:.82rem}
 
 /* STEPS */
-.steps{margin-top:52px;display:grid;gap:0}
+.steps{margin-top:30px;display:grid;gap:0}
 .step{display:grid;grid-template-columns:80px 1fr;gap:26px;padding:28px 0;border-bottom:1px solid rgba(212,175,55,.12);align-items:start}
 .step:last-child{border-bottom:none}
 .step-n{font-family:var(--fd);font-size:2.4rem;font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--gold);line-height:1}
@@ -188,7 +194,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 .step p{color:var(--muted);font-size:.92rem;max-width:640px}
 
 /* COMPARE */
-.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:52px}
+.cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:30px}
 .cmp{border:1px solid rgba(255,255,255,.08);background:var(--card)}
 .cmp-h{padding:20px;font-family:var(--fd);font-weight:800;font-size:.95rem;text-align:center;letter-spacing:.06em;text-transform:uppercase}
 .cmp-bad .cmp-h{background:rgba(196,59,59,.12);color:#e58989;border-bottom:1px solid rgba(196,59,59,.25)}
@@ -199,16 +205,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 
 /* PLANES */
 #planes{background:var(--navy2);border-top:1px solid var(--line)}
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:26px;max-width:940px;margin:56px auto 0;align-items:start}
-.plan{background:var(--navy);border:1px solid rgba(255,255,255,.09);padding:36px 32px 32px;position:relative;transition:transform .3s}
-.plan:hover{transform:translateY(-5px)}
-.plan.top{border:1.5px solid var(--gold);box-shadow:0 0 70px rgba(212,175,55,.12)}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:26px;max-width:940px;margin:32px auto 0;align-items:start}
+.plan{background:var(--navy);border:1.5px solid var(--gold);border-top:4px solid var(--gold);padding:38px 34px 34px;position:relative;transition:transform .3s,box-shadow .3s;box-shadow:0 24px 60px rgba(0,0,0,.4),0 0 50px rgba(212,175,55,.1)}
+.plan:hover{transform:translateY(-6px);box-shadow:0 32px 76px rgba(0,0,0,.55),0 0 60px rgba(212,175,55,.14)}
+.plan.top{box-shadow:0 0 90px rgba(212,175,55,.22),0 24px 60px rgba(0,0,0,.45)}
 .plan-badge{position:absolute;top:0;right:0;background:var(--gold);color:var(--navy);font-family:var(--fd);font-size:.63rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;padding:7px 14px}
-.plan-name{font-family:var(--fd);font-size:1.6rem;font-weight:900;text-transform:uppercase;line-height:1}
-.plan-tag{color:var(--muted);font-size:.87rem;margin-top:8px;min-height:42px}
+.plan-kicker{display:inline-block;background:rgba(212,175,55,.14);border:1px solid var(--line);color:var(--gold2);font-family:var(--fd);font-size:1.15rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;padding:6px 18px;margin-bottom:14px}
+.plan.top .plan-kicker{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.plan-name{font-family:var(--fd);font-size:2.3rem;font-weight:900;text-transform:uppercase;line-height:1}
+.plan-tag{color:var(--muted);font-size:.87rem;margin-top:10px;min-height:42px}
 .plan-price{font-family:var(--fd);font-size:2.6rem;font-weight:900;color:var(--gold);line-height:1;margin:22px 0 4px}
 .plan-price small{font-size:.9rem;color:var(--muted);font-weight:600;display:block;margin-top:8px;letter-spacing:.04em;text-transform:uppercase;font-family:var(--fb)}
-.plan-feat{list-style:none;margin:26px 0 30px;display:grid;gap:12px}
+.plan-divider{height:1px;background:linear-gradient(90deg,var(--gold),transparent 80%);margin-top:24px}
+.plan-feat{list-style:none;margin:22px 0 30px;display:grid;gap:12px}
 .plan-feat li{display:flex;gap:11px;font-size:.9rem;color:#cfd8e6;align-items:flex-start}
 .plan-feat li::before{content:"✓";color:var(--gold);font-weight:800;flex-shrink:0}
 .plan-feat li.head{color:var(--gold2);font-weight:700}
@@ -219,11 +228,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 .plan.base .btn-plan:hover{background:rgba(212,175,55,.1)}
 .plan.top .btn-plan{background:var(--gold);color:var(--navy);animation:glowGold 2.6s ease-in-out infinite}
 .plan.top .btn-plan:hover{background:var(--gold2)}
-.vital-note{max-width:660px;margin:44px auto 0;text-align:center;color:var(--muted);font-size:.9rem;border:1px solid var(--line);padding:20px 28px}
+.vital-note{max-width:660px;margin:26px auto 0;text-align:center;color:var(--muted);font-size:.9rem;border:1px solid var(--line);padding:20px 28px}
 .vital-note b{color:var(--gold)}
 
 /* FAQ */
-.faq{max-width:800px;margin:52px auto 0;display:grid;gap:2px;background:var(--line)}
+.faq{max-width:800px;margin:28px auto 0;display:grid;gap:2px;background:var(--line)}
 .faq details{background:var(--navy2)}
 .faq summary{cursor:pointer;padding:22px 26px;font-family:var(--fd);font-weight:700;font-size:1rem;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;transition:color .2s}
 .faq summary::-webkit-details-marker{display:none}
@@ -235,7 +244,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);b
 
 /* FORM */
 #form-section{background:var(--navy);padding-bottom:100px}
-.form-card{max-width:600px;margin:52px auto 0;background:var(--navy2);border:1px solid var(--line);border-top:4px solid var(--gold);padding:44px 40px;box-shadow:0 34px 90px rgba(0,0,0,.5)}
+.form-kicker{display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gold);font-family:var(--fd);font-weight:800;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;margin-top:44px}
+.form-kicker svg{animation:scrollHint 1.8s ease-in-out infinite}
+.form-card{max-width:600px;margin:14px auto 0;background:var(--navy2);border:1.5px solid rgba(212,175,55,.35);border-top:5px solid var(--gold);padding:44px 40px;box-shadow:0 34px 90px rgba(0,0,0,.5),0 0 70px rgba(212,175,55,.1)}
 .form-head{text-align:center;margin-bottom:32px}
 .form-head h3{font-size:1.45rem;text-transform:uppercase;margin-bottom:8px}
 .form-head p{color:var(--muted);font-size:.88rem}
@@ -294,15 +305,15 @@ footer .logo{justify-content:center;margin-bottom:10px}
 .footer-address .flag{width:18px;height:13px;border-radius:2px;flex-shrink:0}
 
 /* CHECKLIST ¿ES PARA TI? */
-.check-list{max-width:820px;margin:48px auto 0;display:grid;gap:2px;background:var(--line)}
+.check-list{max-width:820px;margin:28px auto 0;display:grid;gap:2px;background:var(--line)}
 .check{background:var(--navy2);padding:20px 26px;display:flex;gap:16px;align-items:flex-start;font-size:1rem;color:#dfe6f2;text-align:left}
 .check .tick{color:var(--gold);font-weight:900;flex-shrink:0;font-size:1.1rem;line-height:1.5}
-.check-verdict{max-width:820px;margin:32px auto 0;text-align:center}
+.check-verdict{max-width:820px;margin:20px auto 0;text-align:center}
 .check-verdict p{font-family:var(--fd);font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:6px}
 .check-verdict span{color:var(--muted);font-size:.92rem}
 
 /* RESULTADOS REALES */
-.resultados{display:grid;gap:2px;margin-top:52px;background:var(--line)}
+.resultados{display:grid;gap:2px;margin-top:30px;background:var(--line)}
 .res-row{background:var(--navy2);display:grid;grid-template-columns:1fr 56px 1fr;align-items:center;gap:0}
 .res-col{padding:24px 26px}
 .res-col .tag{font-family:var(--fd);font-size:.66rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;display:block;margin-bottom:8px}
@@ -316,7 +327,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
 .res-arrow{display:grid;place-items:center;font-size:1.3rem;color:var(--gold);font-weight:800}
 
 /* SOCIAL PROOF NÚMEROS */
-.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;margin-top:48px;background:var(--line)}
+.proof-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2px;margin-top:28px;background:var(--line)}
 .proof-item{background:var(--navy2);padding:36px 22px;text-align:center}
 .proof-number{font-family:var(--fd);font-size:2.6rem;font-weight:900;color:var(--gold);line-height:1;margin-bottom:10px}
 .proof-label{color:var(--muted);font-size:.86rem;line-height:1.45}
@@ -328,7 +339,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
 .badge p{margin:0;color:var(--muted);font-size:.76rem;line-height:1.4}
 
 @media(max-width:900px){
-  .hero-grid,.split,.story-split{grid-template-columns:1fr;gap:46px;text-align:center}
+  .hero-grid,.split,.story-split{grid-template-columns:1fr;gap:30px;text-align:center}
   .res-row{grid-template-columns:1fr}
   .res-arrow{padding:0 0 10px;font-size:1.1rem;transform:rotate(90deg)}
   .check{text-align:left}
@@ -337,7 +348,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
   .rule{margin-left:auto;margin-right:auto}
   .chapter{justify-content:center;flex-wrap:wrap}
   .scroll-hint{align-items:center;width:100%}
-  section{padding:70px 0}
+  section{padding:40px 0}
   .def-card{text-align:left}
   .step{grid-template-columns:56px 1fr;gap:18px;text-align:left}
   .pain{text-align:left}
@@ -360,10 +371,12 @@ footer .logo{justify-content:center;margin-bottom:10px}
   <div class="container">
     <div class="hero-grid">
       <div>
-        <div class="hero-kicker"><span class="dot"></span> Una historia real sobre libertad digital</div>
-        <p class="hero-intro">Me llamo <strong>Jeisson</strong>, soy <strong>programador</strong> de <strong>Bogotá</strong>. Hace poco un familiar de nombre <strong>John</strong> me contó sobre su negocio de ropa infantil, GKKids. Lo que vi me rompió el corazón — así que hice algo al respecto.</p>
+        <div class="hero-kicker"><span class="dot"></span> Todo empezó con 44 mensajes sin leer</div>
+        <p class="hero-kicker2">Te lo cuento en 2 minutos, en 4 capítulos</p>
+        <div class="chapter"><span class="chapter-n">Capítulo 1</span><span class="chapter-t">Así empezó todo</span></div>
+        <p class="hero-intro">Me llamo <strong>Jeisson</strong>, soy <strong>desarrollador web + IA</strong>. Vivo en <strong>Bogotá</strong>. Hace poco un primo que se llama <strong>John</strong> me contó sobre su negocio de ropa infantil, GKKids. <span class="au" style="font-weight:900">Lo que escuché me partió el corazón</span> — así que hice algo al respecto.</p>
         <h1>Cómo salvé a John<br>de su <span class="gold-grad">celular</span></h1>
-        <p class="hero-sub">John estaba respondiendo WhatsApp de 6 de la mañana a 11 de la noche. Su negocio vendía bien, pero lo estaba devorando. <strong>Hoy vende más sin estar pegado al teléfono.</strong> Esta es su historia — y cómo puedo hacerlo por ti también.</p>
+        <p class="hero-sub">Él estaba respondiendo WhatsApp de 6 de la mañana a 11 de la noche. Su negocio vendía bien, pero lo estaba devorando. <strong>Hoy vende más sin estar pegado al teléfono.</strong> Esta es su historia — y cómo puedo hacerlo por ti también.</p>
         <a href="#capitulo-1" class="scroll-hint">
           Te cuento cómo
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -372,13 +385,13 @@ footer .logo{justify-content:center;margin-bottom:10px}
       <div class="sim-wrap">
         <div class="sim-glow"></div>
         <div class="phone">
-          <div class="notif" id="notif">47</div>
+          <div class="notif" id="notif">44</div>
           <div class="phone-notch"></div>
           <div class="chat-head">
             <div class="chat-av">👤</div>
             <div>
               <div class="chat-name">GKKids</div>
-              <div class="chat-status" id="unread">47 mensajes sin leer</div>
+              <div class="chat-status" id="unread">44 mensajes sin leer</div>
             </div>
           </div>
           <div class="chat-body" id="chat-body">
@@ -406,30 +419,28 @@ footer .logo{justify-content:center;margin-bottom:10px}
   <div class="container">
     <div class="story-split">
       <div class="story-txt rv">
-        <div class="chapter"><span class="chapter-n">Capítulo 1</span><span class="chapter-t">El comienzo de John</span></div>
-        <h2>Cuando John <span class="au">me contó su historia</span></h2>
+        <h2>Cuando <span class="au">me contó su historia</span></h2>
         <div class="rule"></div>
-        <p class="story-p">John no tenía un local bonito. No tenía un catálogo impreso. Tenía WhatsApp, una plancha estampadora, unos estantes de segunda y ganas infinitas de crecer.</p>
-        <p class="story-p">Y vendía. La gente le escribía, le pedía cosas, quería ropa de GKKids. El negocio funcionaba.</p>
-        <p class="story-p">Pero había un problema que crecía con cada venta: cada cliente que llegaba traía las mismas preguntas. Y John tenía que responder. Una y otra vez. Todos los días.</p>
+        <p class="story-p">Él no tenía local bonito ni catálogo impreso. Tenía WhatsApp, una plancha estampadora y ganas infinitas de crecer.</p>
+        <p class="story-p">Y vendía. GKKids funcionaba. Pero cada venta traía las mismas preguntas — y él tenía que responderlas. Una y otra vez, todos los días.</p>
       </div>
       <figure class="photo rv">
-        <img src="assets/gkkids-1-inicio.jpg" alt="Los inicios de John: plancha estampadora, estantes improvisados y los primeros productos" loading="eager">
-        <figcaption><b>Los primeros días de John.</b> Una plancha, unos estantes y el celular sonando sin parar. Todo lo hacía él solo.</figcaption>
+        <img src="assets/gkkids-1-inicio.jpg" alt="Los inicios del negocio: plancha estampadora, estantes improvisados y los primeros productos" loading="eager">
+        <figcaption><b>Los primeros días.</b> Una plancha, unos estantes y el celular sonando sin parar. Todo lo hacía él solo.</figcaption>
       </figure>
     </div>
 
-    <div class="narrow" style="margin-top:70px">
+    <div class="narrow" style="margin-top:40px">
       <div class="center rv">
         <h2 style="font-size:clamp(1.5rem,3.2vw,2.2rem)">El WhatsApp lo <span class="au">estaba matando</span></h2>
       </div>
     </div>
 
     <div class="grid-4">
-      <div class="pcard rv"><span class="q">"¿Cuánto cuesta?"</span><p>Estaba en todas partes: la publicación, la bio, los comentarios. Pero todos preguntaban lo mismo. Todos los días.</p></div>
-      <div class="pcard rv"><span class="q">"¿Hacen envíos?"</span><p>Lo escribía en la bio, en las historias, en cada post. La pregunta llegaba igual. Siempre.</p></div>
-      <div class="pcard rv"><span class="q">"¿Qué tallas tienen?"</span><p>Subía fotos de todo. Pero igual escribían para que le repitiera talla por talla. Como si no hubiera visto las fotos.</p></div>
-      <div class="pcard rv"><span class="q">"¿Cuánto demora?"</span><p>La misma respuesta, otra vez. Y otra. Y otra más. Todos los días, el mismo ciclo.</p></div>
+      <div class="pcard rv"><span class="q">"¿Cuál es el precio?"</span><p>La pregunta número 1. Todos los días, en todo lado. Decenas de veces. Sin ver que estaba en la bio, en cada foto, en cada post.</p></div>
+      <div class="pcard rv"><span class="q">"¿Hacen envíos gratis?"</span><p>Escribía el costo en la bio. Pero igual preguntaban. Una y otra vez, como si no leyeran nada.</p></div>
+      <div class="pcard rv"><span class="q">"¿Aceptan pago contra entrega?"</span><p>Explicaba cómo funcionaba el pago. Pero seguían escribiendo con dudas. Cada venta era una explicación igual.</p></div>
+      <div class="pcard rv"><span class="q">"¿Qué tallas y colores tienen?"</span><p>Subía fotos con tallas visibles. Aun así: "¿Tienes en talla 10?" "¿En azul?" La misma pregunta, mil veces.</p></div>
     </div>
 
     <div class="pain-list rv" style="margin-top:2px">
@@ -446,17 +457,16 @@ footer .logo{justify-content:center;margin-bottom:10px}
 <!-- CAPÍTULO 2 — EL MOMENTO DE VERDAD -->
 <section id="capitulo-2" style="background:var(--navy2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="container">
-    <div class="center rv" style="margin-bottom:44px">
+    <div class="center rv" style="margin-bottom:28px">
       <div class="chapter" style="justify-content:center"><span class="chapter-n">Capítulo 2</span><span class="chapter-t">El día que vi la realidad</span></div>
       <h2>Cuando decidí <span class="au">hacer algo</span></h2>
       <div class="rule"></div>
     </div>
     <div class="break-quote rv">
-      <p>Fue un domingo. Reunión familiar en la casa. John estaba allí con nosotros, pero no realmente. Mientras todos platicaban y reían, él miraba el celular. Respondiendo "¿cuánto vale?" por enésima vez. Mensaje tras mensaje.</p>
-      <p>Levanté la mirada y vi a una familia conversando. Después a John. Estaba trabajando en lugar de estar presente. Y lo peor: no veía salida. Creía que así era la única forma de hacer crecer un negocio.</p>
-      <p>En ese momento algo hizo clic en mi cabeza como programador. John no necesitaba trabajar más duro. Necesitaba trabajar diferente.</p>
+      <p>Domingo, reunión familiar. Todos reían. Él miraba el celular, respondiendo "¿cuánto vale?" por enésima vez — presente en cuerpo, ausente en todo lo demás.</p>
+      <p>Ahí entendí algo: no necesitaba trabajar más duro. Necesitaba trabajar diferente.</p>
     </div>
-    <p class="punch rv">John vendía bien.<br>Pero <span class="au">su negocio lo estaba devorando.</span></p>
+    <p class="punch rv">Vendía bien.<br>Pero <span class="au">su negocio lo estaba devorando.</span></p>
   </div>
 </section>
 
@@ -466,31 +476,60 @@ footer .logo{justify-content:center;margin-bottom:10px}
     <div class="split">
       <div class="rv">
         <div class="chapter"><span class="chapter-n">Capítulo 3</span><span class="chapter-t">Cómo lo salvé</span></div>
-        <h2>Creé una <span class="au">landing page</span> para John</h2>
+        <h2>Creé una <span class="au">página inteligente</span> para él</h2>
+        <p style="color:var(--muted);font-size:.95rem;margin-bottom:18px;line-height:1.5">Donde sus clientes llegan, ven precios, detalles, quién eres — todo en un solo lugar, sin WhatsApp, sin confusión.</p>
         <div class="rule"></div>
-        <p class="story-p">No era solo crear una página bonita. Era crear una máquina de ventas. Una página que respondiera todas las preguntas antes de que las hicieran. Una página que filtrara a los curiosos y trajera solo a los compradores reales.</p>
-        <p class="story-p" style="color:var(--muted);font-size:1rem">El objetivo: que John nunca tuviera que responder "¿cuánto vale?" otra vez.</p>
+        <p class="story-p">No era solo una página bonita. Era una máquina de ventas: respondía todo antes de que preguntaran, y filtraba a los curiosos.</p>
+        <p class="story-p" style="color:var(--muted);font-size:1rem">El objetivo: que nunca volviera a responder "¿cuánto vale?".</p>
         <div class="def-list">
           <div class="def-item rv"><div class="ic">📄</div><div><h3>Todo está respondido de antemano</h3><p>Precio, tallas, envíos, tiempos de entrega: visible, claro, en un solo lugar. Sin que tengan que preguntarle.</p></div></div>
           <div class="def-item rv"><div class="ic">🎯</div><div><h3>Filtra a quienes realmente quieren comprar</h3><p>Los curiosos se van solos. Solo quedan los interesados. Y esos son los que dejan sus datos.</p></div></div>
           <div class="def-item rv"><div class="ic">🗂️</div><div><h3>Organiza todo automáticamente</h3><p>Cada interesado va a su base de datos. No se pierde entre cientos de mensajes de WhatsApp.</p></div></div>
         </div>
       </div>
-      <div class="def-card rv">
-        <p class="big-def">Ahora la página <span class="au">hace el trabajo pesado</span>.</p>
-        <p style="color:var(--muted);font-size:.93rem;margin-bottom:18px">Quien llega al WhatsApp ya vio el precio, ya vio las tallas, ya sabe cuánto demora. Llega decidido a comprar.</p>
-        <p style="color:var(--muted);font-size:.93rem">John dejó de estar pegado al celular explicando lo evidente. Ahora usa su tiempo en lo que realmente crece: producir más, despachar más, conseguir más clientes. Y lo más importante: tiene su vida de vuelta.</p>
-      </div>
     </div>
 
-    <div class="narrow rv" style="margin-top:64px">
+    <div class="rv" style="margin-top:36px">
       <div class="center" style="margin-bottom:26px">
         <h2 style="font-size:clamp(1.4rem,3vw,2rem)">Esta es <span class="au">la página que le hice</span></h2>
         <div class="rule"></div>
       </div>
-      <figure class="photo" style="max-width:340px;margin:0 auto">
-        <img src="assets/gkkids-landing-real.jpg" alt="La landing page real de GKKids: colección Dragon Ball con precios, tallas, colores disponibles y botón de compra" loading="lazy">
-        <figcaption><b>La landing de GKKids, funcionando hoy.</b> Precio, tallas, colores, envíos y el botón de compra — todo respondido antes de que el cliente escriba. Por eso John ya no contesta "¿cuánto vale?".</figcaption>
+    </div>
+  </div>
+  <div class="bleed rv">
+    <figure class="photo" style="max-width:460px;margin:0 auto">
+      <img src="assets/gkkids-landing-real.jpg" alt="La landing page real de GKKids: colección Dragon Ball con precios, tallas, colores disponibles y botón de compra" loading="lazy">
+      <figcaption style="text-align:center"><b>La landing de GKKids, hoy.</b> Precio, tallas y compra — todo listo antes de que pregunten.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- FLUJO DE COMPRA — SIMPLE Y SIN COMPLICACIONES -->
+<section style="background:var(--navy)">
+  <div class="container">
+    <div class="center rv" style="margin-bottom:36px">
+      <h2 style="font-size:clamp(1.6rem,3.2vw,2.2rem)">Tan <span class="au">simple</span> que hasta tus clientes lo entienden</h2>
+      <div class="rule"></div>
+      <p class="lead">4 pasos. Sin errores. Sin confusión. Sin que tengas que estar respondiendo.</p>
+    </div>
+  </div>
+  <div class="bleed">
+    <div class="gallery">
+      <figure class="photo rv">
+        <img src="./tienda 2.jpg" alt="Paso 1: Seleccionar diseños - El cliente elige cantidad, diseño, tallas y colores" loading="lazy">
+        <figcaption><b>Paso 1: Elige lo que quiere.</b> Cantidad, diseño, todo visible. Sin preguntar por WhatsApp.</figcaption>
+      </figure>
+      <figure class="photo rv">
+        <img src="./tienda 3.jpg" alt="Paso 2: Resumen del pedido - Ve exactamente qué va a llevar" loading="lazy">
+        <figcaption><b>Paso 2: Revisa su pedido.</b> Ve talla, color y diseño de cada conjunto. Puede editar sin problemas.</figcaption>
+      </figure>
+      <figure class="photo rv">
+        <img src="./tienda 4.jpg" alt="Paso 3: Datos de entrega - Solo nombre, apellido y teléfono" loading="lazy">
+        <figcaption><b>Paso 3: Sus datos, nada más.</b> 3 campos. Nombre, apellido, celular. Eso es todo — sin llenar formularios largos que aburren.</figcaption>
+      </figure>
+      <figure class="photo rv">
+        <img src="./tienda 5.jpg" alt="Paso 4: Confirmación - Gracias por tu compra y guía de despacho" loading="lazy">
+        <figcaption><b>Paso 4: ¡Listo!</b> Confirmación inmediata con número de pedido y guía de despacho por WhatsApp.</figcaption>
       </figure>
     </div>
   </div>
@@ -501,31 +540,33 @@ footer .logo{justify-content:center;margin-bottom:10px}
   <div class="container">
     <div class="center rv">
       <div class="chapter" style="justify-content:center"><span class="chapter-n">Capítulo 4</span><span class="chapter-t">El final que nadie esperaba</span></div>
-      <h2>Hoy John es <span class="au">libre</span></h2>
+      <h2>Hoy es <span class="au">libre</span></h2>
       <div class="rule"></div>
-      <p class="lead">No fue magia. No cambió en un día. Lo que pasó fue simple: John dejó de gastar su vida explicando lo que la landing page explica sola.</p>
+      <p class="lead">No fue magia. Fue simple: dejó de explicar lo que la página ya explica sola.</p>
     </div>
 
-    <div class="gallery">
-      <figure class="photo rv">
-        <img src="assets/gkkids-2-crecimiento.jpg" alt="GKKids en crecimiento: estantes llenos de inventario organizado por tallas" loading="lazy">
-        <figcaption><b>El inventario explotó.</b> Más referencias, más tallas, más clientes. Y John pudo respirar.</figcaption>
-      </figure>
-      <figure class="photo rv">
-        <img src="assets/gkkids-3-bodega-actual.jpg" alt="La bodega actual de John: estantería completa llena de ropa infantil organizada" loading="lazy">
-        <figcaption><b>La bodega hoy.</b> Estantería completa, mercancía organizada por tallas. El negocio real detrás de la pantalla.</figcaption>
-      </figure>
-      <figure class="photo rv">
-        <img src="assets/gkkids-4-pedidos.jpg" alt="Canasta llena de pedidos de GKKids empacados y listos para despachar" loading="lazy">
-        <figcaption><b>Esto fue el inicio.</b> Hoy son muchísimos más paquetes — ahora la transportadora llega directo a recogerlos.</figcaption>
-      </figure>
+    <div class="bleed">
+      <div class="gallery">
+        <figure class="photo rv">
+          <img src="assets/gkkids-2-crecimiento.jpg" alt="GKKids en crecimiento: estantes llenos de inventario organizado por tallas" loading="lazy">
+          <figcaption><b>El inventario explotó.</b> Más referencias, más tallas, más clientes. Y pudo respirar.</figcaption>
+        </figure>
+        <figure class="photo rv">
+          <img src="assets/gkkids-4-pedidos.jpg" alt="Canasta llena de pedidos de GKKids empacados y listos para despachar" loading="lazy">
+          <figcaption><b>Esto fue el inicio.</b> Hoy son muchísimos más paquetes — ahora la transportadora llega directo a recogerlos.</figcaption>
+        </figure>
+        <figure class="photo rv">
+          <img src="assets/gkkids-3-bodega-actual.jpg" alt="La bodega actual: estantería completa llena de ropa infantil organizada" loading="lazy">
+          <figcaption><b>La bodega hoy.</b> Estantería completa, mercancía organizada por tallas. El negocio real detrás de la pantalla.</figcaption>
+        </figure>
+      </div>
     </div>
 
-    <div class="narrow rv" style="margin-top:60px;text-align:center">
-      <p class="story-p big">Ahora John <span class="au">tiene su vida de vuelta</span></p>
-      <p class="story-p">Recuperó los domingos. Recuperó los almuerzos familiares sin el celular en la mano. Recuperó las horas que antes gastaba respondiendo curiosos — y ahora las invierte en crear campañas de publicidad que sí traen clientes, y en surtir el inventario para que su negocio crezca de verdad.</p>
-      <p class="story-p">Y lo mejor: <strong>sus ventas no bajaron. Crecieron.</strong> Porque dejó de perder tiempo en lo que no importaba, y empezó a invertirlo en lo que sí.</p>
-      <p class="story-p" style="color:var(--muted)">Eso me mostró algo importante. John necesitaba exactamente esto, y yo descubrí mi propósito como programador. Ahora creo landing pages para emprendedores como John — gente que vende bien, pero está atrapada en el celular. Y los libero también.</p>
+    <div class="narrow rv" style="margin-top:36px;text-align:center">
+      <p class="story-p big">Ahora <span class="au">tiene su vida de vuelta</span></p>
+      <p class="story-p">Recuperó las horas que antes perdía con curiosos. Ahora tiene tiempo para publicidad, para surtir inventario — y también tiempo para él y su familia: los domingos y los almuerzos sin celular en la mano.</p>
+      <p class="story-p">Y lo mejor: <strong>sus ventas no bajaron. Crecieron.</strong></p>
+      <p class="story-p" style="color:var(--muted)">Ahí encontré mi propósito: crear landing pages para emprendedores como John. Gente que vende bien, pero está atrapada en el celular. Y los libero también.</p>
     </div>
   </div>
 </section>
@@ -537,7 +578,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
       <span class="eyebrow">Lo que cambió</span>
       <h2>Los números reales <span class="au">de GKKids</span></h2>
       <div class="rule"></div>
-      <p class="lead">No son promesas ni proyecciones. Es lo que pasó en el negocio de John antes y después de tener su landing page.</p>
+      <p class="lead">No son promesas ni proyecciones. Es lo que pasó en su negocio antes y después de tener su landing page.</p>
     </div>
 
     <div class="resultados">
@@ -593,10 +634,10 @@ footer .logo{justify-content:center;margin-bottom:10px}
       <span>Y si solo aplican algunos, también es para ti — el problema empieza igual.</span>
     </div>
 
-    <div class="center rv" style="margin-top:70px">
+    <div class="center rv" style="margin-top:40px">
       <h2 style="font-size:clamp(1.4rem,3vw,2rem)">Funciona con <span class="au">lo que tú vendas</span></h2>
       <div class="rule"></div>
-      <p class="lead">John vende ropa infantil, pero el sistema es el mismo para cualquier negocio que hoy recibe pedidos por chat.</p>
+      <p class="lead">Él vende ropa infantil, pero el sistema es el mismo para cualquier negocio que hoy recibe pedidos por chat.</p>
     </div>
     <div class="nichos">
       <div class="nicho rv"><span class="em">👕</span><div class="nm">Ropa</div><div class="ds">Infantil, femenina, deportiva</div></div>
@@ -606,7 +647,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
       <div class="nicho rv"><span class="em">🐾</span><div class="nm">Mascotas</div><div class="ds">Accesorios, alimento, ropa</div></div>
       <div class="nicho rv"><span class="em">🚚</span><div class="nm">Dropshipping</div><div class="ds">Contraentrega, catálogo, envíos</div></div>
     </div>
-    <div class="narrow rv center" style="margin-top:44px">
+    <div class="narrow rv center" style="margin-top:28px">
       <p class="story-p" style="color:var(--muted)">¿No ves el tuyo en la lista? No importa. <strong>Si hoy te preguntan el precio por chat, tu negocio necesita esto.</strong></p>
     </div>
   </div>
@@ -667,7 +708,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
       <span class="eyebrow">Planes</span>
       <h2>Una inversión única.<br><span class="au">Beneficios para siempre</span></h2>
       <div class="rule"></div>
-      <p class="lead">Sin mensualidades. Sin letras pequeñas. Tu landing page es tuya de por vida. Y no te llevas solo una página: te llevas el camino completo que a mí me tocó recorrer solo.</p>
+      <p class="lead">Sin mensualidades, sin letra pequeña. Tu página es tuya de por vida — y te llevas el camino que a mí me tocó recorrer solo.</p>
     </div>
 
     <div class="pilares">
@@ -691,37 +732,41 @@ footer .logo{justify-content:center;margin-bottom:10px}
     <div class="plans">
 
       <div class="plan base rv">
-        <div class="plan-name">Plan Impulso</div>
-        <p class="plan-tag">Tu landing page profesional, lista para vender desde el primer día.</p>
+        <div class="plan-kicker">Plan</div>
+        <div class="plan-name">Impulso</div>
+        <p class="plan-tag">Tu landing profesional, hecha a la medida de tu negocio.</p>
         <div class="plan-price">$350.000<small>Pago único · COP</small></div>
+        <div class="plan-divider"></div>
         <ul class="plan-feat">
-          <li>Landing page profesional hecha a la medida de tu producto</li>
-          <li>Formulario que captura y organiza a tus clientes automáticamente</li>
-          <li>Base de datos: ningún interesado se te vuelve a perder</li>
-          <li>Diseño optimizado para convertir visitantes en compradores</li>
-          <li>Notificación al instante cada vez que llega un cliente</li>
-          <li>Adaptada a celular, tablet y computador</li>
-          <li>Asesoramiento para que sepas cómo empezar a vender</li>
-          <li>Vitalicia: es tuya para siempre, sin mensualidades</li>
+          <li>Landing profesional a la medida de tu producto</li>
+          <li>Formulario que captura y organiza tus clientes</li>
+          <li>Ningún interesado se te vuelve a perder</li>
+          <li>Diseño optimizado para convertir</li>
+          <li>Notificación al instante por cada cliente</li>
+          <li>Lista en celular, tablet y computador</li>
+          <li>Asesoría para empezar a vender</li>
+          <li>Vitalicia — tuya para siempre</li>
         </ul>
         <button class="btn-plan" onclick="pickPlan('Plan Impulso – $350.000 COP')">Ver detalles · sin compromiso</button>
       </div>
 
       <div class="plan top rv">
         <div class="plan-badge">★ Más elegido</div>
-        <div class="plan-name">Plan Vende+</div>
-        <p class="plan-tag">El paquete completo: la página, los clientes y el conocimiento para escalar.</p>
+        <div class="plan-kicker">Plan</div>
+        <div class="plan-name">Vende+</div>
+        <p class="plan-tag">La página, los clientes y el conocimiento para escalar.</p>
         <div class="plan-price">$500.000<small>Pago único · COP</small></div>
+        <div class="plan-divider"></div>
         <ul class="plan-feat">
-          <li class="head">Todo lo del Plan Impulso, y además:</li>
-          <li><b>Dominio propio incluido</b> — tu marca con nombre serio</li>
-          <li><b>Curso de Facebook Ads</b> — aprendes a traer clientes tú mismo</li>
-          <li><b>Estrategia de ventas completa</b> — qué decir y cómo cerrar</li>
-          <li><b>Campañas configuradas y optimizadas</b> por mí, listas para correr</li>
-          <li><b>Píxel y eventos instalados</b> — mides cada peso que inviertes</li>
-          <li><b>Empresa de mensajería</b> — integración y asesoría de envíos</li>
-          <li><b>Soporte prioritario y cambios</b> durante 3 meses</li>
-          <li><b>Acompañamiento</b> hasta que veas tus primeras ventas</li>
+          <li class="head">Todo lo de Impulso, y además:</li>
+          <li><b>Dominio propio</b> — tu marca con nombre serio</li>
+          <li><b>Curso de Facebook Ads</b> incluido</li>
+          <li><b>Estrategia de ventas</b> — qué decir y cómo cerrar</li>
+          <li><b>Una campaña configurada</b> por mí, lista para correr</li>
+          <li><b>Píxel y eventos</b> — mides cada peso invertido</li>
+          <li><b>Asesoría de envíos</b> con transportadora</li>
+          <li><b>3 meses</b> de soporte y cambios</li>
+          <li><b>Acompañamiento</b> hasta tu primera venta</li>
         </ul>
         <button class="btn-plan" onclick="pickPlan('Plan Vende+ – $500.000 COP')">Ver detalles · sin compromiso</button>
       </div>
@@ -759,40 +804,36 @@ footer .logo{justify-content:center;margin-bottom:10px}
     </div>
     <div class="faq rv">
       <details>
-        <summary>¿Sirve para mi tipo de negocio?</summary>
-        <div class="ans">Si vendes algo y hoy recibes pedidos o preguntas por WhatsApp o Instagram, sirve. Lo he hecho para ropa, productos importados, servicios y cursos. Lo único que cambia es el contenido: la estructura que hace que la gente decida es la misma.</div>
+        <summary>¿Cuál es el precio? ¿Cuánto cuesta?</summary>
+        <div class="ans">Eso depende del tipo de producto y qué quieras incluir. La mayoría de mis clientes invierte entre $80.000 y $180.000 pesos. Es un pago único — sin mensualidades, sin cuotas sorpresas. La página trabaja para ti años sin pagar nada más.</div>
       </details>
       <details>
-        <summary>¿Tengo que pagar mensualidad?</summary>
-        <div class="ans">No. Es un pago único y la página es tuya para siempre. Sin cuotas, sin suscripciones, sin sorpresas más adelante.</div>
+        <summary>¿El envío es gratis?</summary>
+        <div class="ans">Eso lo decides tú. Algunos ofrecen envío gratis en toda Colombia. Otros cobran según la ciudad o el peso. La página te permite mostrar exactamente cómo funciona tu envío, así el cliente sabe desde el inicio cuánto paga en total — sin sorpresas en WhatsApp.</div>
       </details>
       <details>
-        <summary>No sé nada de tecnología, ¿me va a servir?</summary>
-        <div class="ans">Yo tampoco sabía cuando empecé. Tú no tienes que configurar nada: yo armo todo y te lo entrego funcionando. Lo único que haces es responderles a los clientes que ya llegan decididos.</div>
+        <summary>¿Tienen pago contra entrega?</summary>
+        <div class="ans">Sí, la página te ayuda a capturar clientes que quieren pagar al recibir. No procesas pago en línea. El cliente deja sus datos en la página, llega el paquete, paga — así de simple. Tú recibes el dinero cuando entregas.</div>
       </details>
       <details>
-        <summary>¿En cuánto tiempo la tengo lista?</summary>
-        <div class="ans">Depende de qué tan rápido me pases la información de tu producto (fotos, precios, detalles). Con el material completo, en pocos días la tienes publicada y funcionando.</div>
+        <summary>¿Qué diseños tienen disponibles?</summary>
+        <div class="ans">Los diseños que tú tengas. La página muestra exactamente los que ofrecés. Si cambias de colecciones, actualizamos. Si solo tienes 5 diseños, vemos 5. La página es flexible — crece contigo.</div>
       </details>
       <details>
-        <summary>¿En cuánto tiempo veo resultados?</summary>
-        <div class="ans">Depende del tráfico que le mandes. Con la página lista y tráfico dirigido, entre 15 y 30 días notas la diferencia: menos mensajes de curiosos y más gente que llega decidida. La página no genera visitas sola — la clave es enviarle tráfico desde tus redes o tus anuncios.</div>
+        <summary>¿Qué colores hay?</summary>
+        <div class="ans">Los colores que tú ofrecés en tu stock. La página te permite mostrar cada opción con fotos reales, así no hay confusión. El cliente ve "Rojo", "Azul", "Negro" — y exactamente cómo se ve en el producto.</div>
       </details>
       <details>
-        <summary>¿Hay garantía de ventas?</summary>
-        <div class="ans">Te voy a ser honesto: no puedo garantizar ventas, porque dependen de tu producto, de tu precio, del tráfico que envíes y de tu seguimiento. Lo que sí garantizo es que la página queda construida profesionalmente y optimizada para convertir, y que quien llegue a tu WhatsApp ya vio precio, tallas y envíos — o sea, llega como comprador real y no como curioso.</div>
+        <summary>¿Qué tallas tienen?</summary>
+        <div class="ans">Las que tú vendas. Tallas de niño (2, 4, 6, 8, 10...), tallas de adulto (XS, S, M, L...), lo que sea. El cliente selecciona su talla antes de comprar — así no llega pidiendo cambio porque "no le quedó".</div>
       </details>
       <details>
-        <summary>¿Puedo usar la landing para varias categorías?</summary>
-        <div class="ans">Sí. Si vendes varias cosas (ropa y accesorios, por ejemplo), la página se arma para mostrarlas organizadas por categoría, de modo que cada visitante encuentre rápido lo que le interesa sin perderse.</div>
+        <summary>¿Cuánto tiempo demora la entrega?</summary>
+        <div class="ans">Eso lo pones tú en la página. Si entregas en 3 días en Bogotá y 5 días en provincia, así lo ves. El cliente sabe exactamente cuándo recibe su pedido antes de comprar.</div>
       </details>
       <details>
-        <summary>¿Y si después quiero cambiar algo?</summary>
-        <div class="ans">Con el Plan Vende+ tienes soporte y cambios incluidos durante 3 meses. Con el Plan Impulso puedes pedir ajustes puntuales cuando los necesites.</div>
-      </details>
-      <details>
-        <summary>$350.000 me parece mucho, ¿vale la pena?</summary>
-        <div class="ans">Es una pregunta justa. Piénsalo así: es un pago único, sin mensualidades, por algo que trabaja para ti todos los días durante años. Si con la página cierras dos o tres ventas que hoy se te escapan por no responder a tiempo, ya se pagó sola. Y el tiempo que recuperas no tiene precio — eso lo aprendí a la mala.</div>
+        <summary>¿Garantía o cambios si el producto llega dañado?</summary>
+        <div class="ans">Eso lo defines tú. La página te permite aclarar tu política: "Cambios sin costo en 7 días" o lo que ofrecés. El cliente lo lee antes de comprar — no hay confusión después.</div>
       </details>
     </div>
   </div>
@@ -806,6 +847,10 @@ footer .logo{justify-content:center;margin-bottom:10px}
       <h2>¿Listo para <span class="au">salir del chat</span>?</h2>
       <div class="rule"></div>
       <p class="lead">Déjame tus datos y te contacto con una propuesta personalizada para tu negocio. Sin compromiso, sin letra pequeña.</p>
+    </div>
+    <div class="form-kicker rv">
+      Aquí envías tu información
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
     </div>
     <div class="form-card rv">
       <div id="form-fields">
@@ -836,7 +881,7 @@ footer .logo{justify-content:center;margin-bottom:10px}
         <input id="f-plan" type="hidden" value="">
 
         <button class="btn-send" id="btn-send">
-          Enviar y contactar por WhatsApp
+          Enviar mi información
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
         </button>
         <div class="form-fail" id="form-fail">No se pudo enviar tu solicitud. Revisa tu conexión e intenta de nuevo.</div>
@@ -851,8 +896,8 @@ footer .logo{justify-content:center;margin-bottom:10px}
   <div class="popup-box">
     <button class="popup-close" onclick="cerrarPopup()" aria-label="Cerrar">✕</button>
     <div class="big">🎉</div>
-    <h3>¡Solicitud recibida!</h3>
-    <p>Tu información quedó registrada. Te contactaré en menos de <strong style="color:var(--ink)">24 horas</strong> con tu propuesta personalizada.</p>
+    <h3>¡Hemos recibido tu información!</h3>
+    <p>Te contactaremos lo más rápido posible — en menos de <strong style="color:var(--ink)">24 horas</strong> — con tu propuesta personalizada.</p>
     <p id="frase-motivacion" class="popup-frase"></p>
     <a href="https://wa.me/573202892103" target="_blank" rel="noopener" class="popup-btn-wa" id="popup-btn-wa">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.22-8.24 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31s-.88.86-.88 2.1.9 2.44 1.02 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
@@ -880,15 +925,6 @@ footer .logo{justify-content:center;margin-bottom:10px}
       <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.87 9.87 0 0 0 12.04 2zm0 18.14a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.22-8.24 8.22zm4.52-6.16c-.25-.12-1.47-.72-1.7-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.06-.39-2.01-1.24-.74-.66-1.25-1.48-1.39-1.73-.15-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31s-.88.86-.88 2.1.9 2.44 1.02 2.61c.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
     </a>
   </div>
-  <div class="trust-badges">
-    <div class="badge"><span class="bic">🔒</span><p>Tus datos son privados y quedan guardados de forma segura</p></div>
-    <div class="badge"><span class="bic">💬</span><p>Respuesta en menos de 24 horas</p></div>
-    <div class="badge"><span class="bic">✓</span><p>Pago único, sin mensualidades ni letra pequeña</p></div>
-  </div>
-  <p class="footer-address">
-    <svg class="flag" viewBox="0 0 3 2"><rect width="3" height="2" fill="#FCD116"/><rect width="3" height="1" y="1" fill="#003893"/><rect width="3" height="0.5" y="1.5" fill="#CE1126"/></svg>
-    Cra 11 # 93-12, Bogotá, Colombia
-  </p>
   <p>© 2026 CreoTuLandingPage · Todos los derechos reservados</p>
 </footer>
 
@@ -1101,12 +1137,12 @@ $("btn-send").addEventListener("click", async () => {
     $("popup-btn-wa").href = `https://wa.me/573202892103?text=${waMsg}`;
     $("popup-ok").classList.add("visible");
     btn.disabled = false;
-    btn.innerHTML = 'Enviar y contactar por WhatsApp <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+    btn.innerHTML = 'Enviar mi información <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
   } catch (err) {
     console.error("Error guardando lead:", err);
     $("form-fail").style.display = "block";
     btn.disabled = false;
-    btn.innerHTML = 'Enviar y contactar por WhatsApp <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
+    btn.innerHTML = 'Enviar mi información <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
   }
 });
 </script>
@@ -1156,6 +1192,7 @@ function pickPlan(plan) {
 function cerrarPopup() {
   document.getElementById("popup-ok").classList.remove("visible");
 }
+
 </script>
 </body>
 </html>
